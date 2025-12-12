@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "Arial", sans-serif;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  margin-right: 5px;
+}
+
+.wrapper {
+  background: #f7f3e9;
+  border-top: #CE0000 15px solid;
+  border-bottom: #CE0000 15px solid;
+  box-sizing: border-box;  /* ボーダー、内余白を高さに合わせて調節してくれる */
+}
+
+.inner {
+  width: 1200px;
+  margin-inline: auto;
+}
+
+/* ヘッダーの設定
+-----------------------------------------------------------------------------*/
+header {
+  width: 1200px;
+  height: 160px;
+  margin-inline: auto;
+  padding-top: 20px;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 a{
+  border: none;
+}
+
+.hd_copy {
+  margin-top: 40px;
+  text-align: right;
+  font-size: 24px;
+}
+
+p.hd_copy01 {
+  padding-right: 30px;
+  margin-bottom: 10px;
+}
+
+
+/* ナビゲーション
+-----------------------------------------------------------------------------*/
+nav {
+  width: 1200px;
+  height: 75px;
+  margin-inline: auto;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 0px;  /* 間隔の設定 */
+  list-style: none;
+}
+
+nav a {
+  width: 300px;
+  height: 75px;
+  display: block;
+  text-indent: -9999px; /* ← テキスト非表示 */
+  overflow: hidden;
+  background-size: 100% 100%;
+}
+
+nav a:hover {background-size: 100% 100%;}
+
+/* ナビゲーションボタン */
+a.nav_cart {background-image: url(/static/images/nv_cart.jpg);}
+a.nav_product {background-image: url(/static/images/nv_product.jpg);}
+a.nav_login {background-image: url(/static/images/nv_login.jpg);}
+a.nav_voice {background-image: url(/static/images/nv_voice.jpg);}
+
+/* ナビゲーションボタン ホバー時 */
+a.nav_cart:hover {background-image: url(/static/images/nv_cart_on.jpg);}
+a.nav_product:hover {background-image: url(/static/images/nv_product_on.jpg);}
+a.nav_login:hover {background-image: url(/static/images/nv_login_on01.jpg);}
+a.nav_voice:hover {background-image: url(/static/images/nv_voice_on.jpg);}
+
+/* ナビゲーションボタン 該当ページ時 */
+#cart_nav a.nav_cart {background-image: url(/static/images/nv_cart_on.jpg);}
+#product_nav a.nav_product {background-image: url(/static/images/nv_product_on.jpg);}
+#login_nav a.nav_login {background-image: url(/static/images/nv_login_on01.jpg);}
+#voice_nav a.nav_voice {background-image: url(/static/images/nv_voice_on.jpg);}
+
+
+/* メインエリア
+-----------------------------------------------------------------------------*/
+
+
+/* フッター
+-----------------------------------------------------------------------------*/
+footer {
+  width: 1000px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+footer small {
+  font-size: 1rem;
+}
