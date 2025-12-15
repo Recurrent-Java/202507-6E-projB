@@ -1,26 +1,13 @@
 package com.example.springlesson.controller;
 
-import java.util.List;
-
-import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.springlesson.form.Item;
-import com.example.springlesson.form.PurchaseForm;
-import com.example.springlesson.service.PurchaseService;
 
 
 @Controller
 @RequestMapping("/purchase")
 public class PurchaseController {
+  /*
   private final PurchaseService purchaseService;
 
   public PurchaseController(PurchaseService purchaseService) {
@@ -54,7 +41,7 @@ public class PurchaseController {
       return "purchase/purchase-in";
     }
     /** 購入処理 */
-    try {
+   /* try {
       // セッションスコープよりカートを取得
       List<Item> cart = (List<Item>)session.getAttribute("cart");
       if(cart == null || cart.isEmpty()) {
@@ -70,5 +57,5 @@ public class PurchaseController {
       model.addAttribute("errMsg", e.getMessage());
       return "error/error";
     }
-  }
+  }*/
 }
