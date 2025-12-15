@@ -56,6 +56,10 @@
   border-radius: 10px;
 }
 
+.idx_voice_in table{
+  width: 100%;
+}
+
 .idx_voice_in tr {
   border-bottom: 2px dotted #b3b1b1;
 }
