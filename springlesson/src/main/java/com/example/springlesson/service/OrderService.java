@@ -11,10 +11,10 @@ import com.example.springlesson.form.Item;
 import com.example.springlesson.repository.OrderRepository;
 
 @Service
-public class PurchaseService {
+public class OrderService {
   private final OrderRepository purchaseRepository;
 
-  public PurchaseService(OrderRepository purchaseRepository) {
+  public OrderService(OrderRepository purchaseRepository) {
     this.purchaseRepository = purchaseRepository;
   }
 
