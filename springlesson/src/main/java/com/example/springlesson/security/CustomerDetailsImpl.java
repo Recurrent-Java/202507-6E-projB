@@ -5,19 +5,19 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.springlesson.entity.Customer;
+import com.example.springlesson.entity.User;
 
 public class CustomerDetailsImpl implements UserDetails {
-  private final Customer customer;
+  private final User customer;
   private final Collection<GrantedAuthority> authorities;
   
   // コンストラクターインジェクション
-  public CustomerDetailsImpl(Customer customer, Collection<GrantedAuthority> authorities) {
+  public CustomerDetailsImpl(User customer, Collection<GrantedAuthority> authorities) {
     this.customer = customer;
     this.authorities = authorities;
   }
   
-  public Customer getCustomer() {
+  public User getCustomer() {
     return this.customer;
   }
   

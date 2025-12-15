@@ -6,15 +6,15 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.springlesson.entity.Purchase;
+import com.example.springlesson.entity.UserAddress;
 import com.example.springlesson.form.Item;
-import com.example.springlesson.repository.PurchaseRepository;
+import com.example.springlesson.repository.OrderRepository;
 
 @Service
 public class PurchaseService {
-  private final PurchaseRepository purchaseRepository;
+  private final OrderRepository purchaseRepository;
 
-  public PurchaseService(PurchaseRepository purchaseRepository) {
+  public PurchaseService(OrderRepository purchaseRepository) {
     this.purchaseRepository = purchaseRepository;
   }
 
@@ -23,7 +23,7 @@ public class PurchaseService {
   public void save(List<Item> cart, String name, String address) throws Exception {
     try {
       for (Item item : cart) {
-        Purchase purchase = new Purchase(
+        UserAddress purchase = new UserAddress(
             null,
             item.getProduct().getId(),
             item.getProduct().getName(),
