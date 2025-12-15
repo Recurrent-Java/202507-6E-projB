@@ -10,15 +10,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.springlesson.entity.Customer;
-import com.example.springlesson.repository.CustomerRepository;
+import com.example.springlesson.entity.User;
+import com.example.springlesson.repository.AuthRepository;
 
 @Service
 public class CutomerDetailsServiceImpl implements UserDetailsService {
-  private final CustomerRepository customerRepository;
+  private final AuthRepository customerRepository;
   
   // コンストラクターインジェクション
-  public CutomerDetailsServiceImpl(CustomerRepository customerRepository) {
+  public CutomerDetailsServiceImpl(AuthRepository customerRepository) {
     this.customerRepository = customerRepository;
   }
 
@@ -27,7 +27,7 @@ public class CutomerDetailsServiceImpl implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
     try {
-      Customer customer = customerRepository.findByLogin(login);
+      User customer = customerRepository.findByLogin(login);
       if(customer == null) {
         throw new UsernameNotFoundException("ユーザーが見つかりません：" + login);
       }
