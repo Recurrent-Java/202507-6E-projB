@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data  // getter/setterを自動で作成してくれる
 @NoArgsConstructor  // 引数なしのコンストラクターをlombokが作成してくれる
 @AllArgsConstructor // 全フィールドを使用したコンストラクターをlombokが作成してくれる
-public class Purchase {
+public class UserAddress {
   // 購入ID
   @Id  // 主キーを表す
   @GeneratedValue(strategy = GenerationType.IDENTITY)  // AUTO_INCREMENTの場合付与が必要
