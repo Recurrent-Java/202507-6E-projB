@@ -1,27 +1,53 @@
 package com.example.springlesson.entity;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import lombok.Data;
 
-@Entity  // DBからのデータ格納用クラスであることを表す
-@Table(name="product")
-@Data  // getter/setterを自動で作成してくれる
+@Entity
+@Table(name = "products")
+@Data
 public class Product {
-  // 商品ID
-  @Id  // 主キーを表す
-  @GeneratedValue(strategy = GenerationType.IDENTITY)  // AUTO_INCREMENTの場合付与が必要
-  @Column(name="id")  // DB上のカラム名と変数名を別にしたい場合は必須
-  private Integer id;
-  // 商品名
-  @Column(name="name")  // DB上のカラム名と変数名を別にしたい場合は必須
-  private String name;
-  // 価格
-  @Column(name="price")  // DB上のカラム名と変数名を別にしたい場合は必須
-  private Integer price;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    private Integer price;
+    private Integer calories;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "allergy_info")
+    private String allergyInfo;
+
+    @Column(name = "ingredient_info")
+    private String ingredientInfo;
+
+    @Column(name = "is_active")
+    private Boolean isActive;
+
+    @Column(name = "created_at", insertable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at", insertable = false, updatable = false)
+    private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "product")
+    private List<ProductCategory> categories;
 }
