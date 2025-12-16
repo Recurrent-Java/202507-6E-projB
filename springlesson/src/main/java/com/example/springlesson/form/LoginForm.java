@@ -10,7 +10,7 @@ public class LoginForm {
 // ログインID(メールアドレス)
   @NotBlank(message = "ログインIDを入力してください。")
   @Email(message = "有効なメールアドレスを入力してください。")
-  private String loginId;
+  private String email;
   // パスワード
   @NotBlank(message = "パスワードを入力してください。")
   private String password;
