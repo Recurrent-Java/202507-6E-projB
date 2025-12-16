@@ -30,6 +30,9 @@ public class User {
   @Column(name="password_hash", nullable =false)  // DB上のカラム名と変数名を別にしたい場合は必須
   private String password;
   
+  @Column(name="name", nullable =false)  // DB上のカラム名と変数名を別にしたい場合は必須
+  private String name;
+  
   @Column(name="phone_number")  // DB上のカラム名と変数名を別にしたい場合は必須
   private String phoneNumber;
   

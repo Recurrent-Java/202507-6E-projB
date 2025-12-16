@@ -36,6 +36,5 @@ public class RegistForm {
   // 住所2
   private String addressLine2;
   //DM通知
-  @NotBlank(message = "DM通知の希望を選択してください。")
   private boolean dmOptIn;
 }
