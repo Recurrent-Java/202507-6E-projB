@@ -45,7 +45,8 @@ public class AuthService {
     userAddress.setAddressLine1(form.getAddressLine1());
     userAddress.setAddressLine2(form.getAddressLine2());
     //登録処理
-    userRepository.save(user);
+    
+    userRepository.save(user);  
     userAddressRepository.save(userAddress);
   }
 }
