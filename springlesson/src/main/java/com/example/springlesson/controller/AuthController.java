@@ -32,19 +32,9 @@ public AuthController(AuthService authService ) {
   
         return "login/login";
     }
-  
-  @GetMapping("/logout")
-    public String logout(HttpSession HttpSession) {
-         HttpSession.removeAttribute("userInf");
-        return "/index";
-    }
   @GetMapping("/sign-up")
     public String signUp() {
         return "/sign-up/sign-up";
-    }
-  @PostMapping("login") 
-    public String loginPost() {
-        return "login/login";
     }
   @PostMapping("sign-up")
     public String signUpPost( @Valid @ModelAttribute("RegistForm") RegistForm form,
