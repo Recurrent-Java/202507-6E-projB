@@ -7,12 +7,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.springlesson.entity.User;
 
-public class CustomerDetailsImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
   private final User customer;
   private final Collection<GrantedAuthority> authorities;
   
   // コンストラクターインジェクション
-  public CustomerDetailsImpl(User customer, Collection<GrantedAuthority> authorities) {
+  public UserDetailsImpl(User customer, Collection<GrantedAuthority> authorities) {
     this.customer = customer;
     this.authorities = authorities;
   }
@@ -23,7 +23,7 @@ public class CustomerDetailsImpl implements UserDetails {
   
   @Override
   public String getUsername() {
-    return this.customer.getLogin();
+    return this.customer.getEmail();
   }
   
   @Override

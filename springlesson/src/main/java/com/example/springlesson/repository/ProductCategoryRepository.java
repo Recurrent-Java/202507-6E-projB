@@ -2,6 +2,8 @@ package com.example.springlesson.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductCategoryRepository extends JpaRepository<T, ID> {
+import com.example.springlesson.entity.ProductCategory;
+
+public interface ProductCategoryRepository extends JpaRepository<ProductCategory,ProductCategory> {
 
 }
