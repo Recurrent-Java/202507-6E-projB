@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TopController {
   @GetMapping("/")
   public String index() {
+    
     return "index";  // index.htmlを呼び出す
     
   }
