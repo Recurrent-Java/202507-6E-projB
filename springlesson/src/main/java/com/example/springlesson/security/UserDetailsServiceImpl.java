@@ -11,31 +11,31 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.springlesson.entity.User;
-import com.example.springlesson.repository.AuthRepository;
+import com.example.springlesson.repository.UserRepository;
 
 @Service
-public class CutomerDetailsServiceImpl implements UserDetailsService {
-  private final AuthRepository customerRepository;
+public class UserDetailsServiceImpl implements UserDetailsService {
+  private final UserRepository userRepository;
   
   // コンストラクターインジェクション
-  public CutomerDetailsServiceImpl(AuthRepository customerRepository) {
-    this.customerRepository = customerRepository;
+  public UserDetailsServiceImpl(UserRepository userRepository) {
+    this.userRepository = userRepository;
   }
 
 
 
   @Override
-  public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
     try {
-      User customer = customerRepository.findByLogin(login);
-      if(customer == null) {
-        throw new UsernameNotFoundException("ユーザーが見つかりません：" + login);
+      User user = userRepository.findByEmail(email);
+      if(user == null) {
+        throw new UsernameNotFoundException("ユーザーが見つかりません：" + email);
       }
       // 権限(とりあえずここに固定しておきます)
       Collection<GrantedAuthority> authorities = new ArrayList<>();
       authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
       
-      return new CustomerDetailsImpl(customer, authorities);
+      return new UserDetailsImpl(user, authorities);
     }catch(Exception e) {
       throw new UsernameNotFoundException("ユーザーが見つかりませんでした。");
     }
