@@ -8,27 +8,27 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.springlesson.entity.User;
 
 public class UserDetailsImpl implements UserDetails {
-  private final User customer;
+  private final User user;
   private final Collection<GrantedAuthority> authorities;
   
   // コンストラクターインジェクション
-  public UserDetailsImpl(User customer, Collection<GrantedAuthority> authorities) {
-    this.customer = customer;
+  public UserDetailsImpl(User user, Collection<GrantedAuthority> authorities) {
+    this.user = user;
     this.authorities = authorities;
   }
   
-  public User getCustomer() {
-    return this.customer;
+  public User getUser() {
+    return this.user;
   }
   
   @Override
   public String getUsername() {
-    return this.customer.getEmail();
+    return this.user.getEmail();
   }
   
   @Override
   public String getPassword() {
-    return this.customer.getPassword();
+    return this.user.getPassword();
   }
 
   @Override

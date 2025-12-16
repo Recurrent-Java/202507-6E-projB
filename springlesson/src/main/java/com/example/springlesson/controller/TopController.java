@@ -21,8 +21,14 @@ public class TopController {
   @GetMapping("/")
   public String index(Model model) {
     //商品レビューの取得
-    List<Voice> voiceList = topService.getTop2Voices();
-    model.addAttribute("voiceList", voiceList);
+    try {
+      List<Voice> voiceList = topService.getTop2Voices();
+      model.addAttribute("voiceList", voiceList);
+      }catch(Exception e) {
+      model.addAttribute("errMsg", e.getMessage());
+      return "error";  // error.htmlを呼び出す
+    }
+
     return "index";  // index.htmlを呼び出す
     
   }

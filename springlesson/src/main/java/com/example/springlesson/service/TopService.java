@@ -2,6 +2,8 @@ package com.example.springlesson.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.example.springlesson.entity.Voice;
 import com.example.springlesson.repository.VoiceRepository;
 
@@ -13,7 +15,13 @@ public TopService(VoiceRepository voiceRepository) {
 }
 
 public List<Voice> getTop2Voices() {
-  return voiceRepository.findTop2ByOrderByIdAsc();
+  try {
+    return voiceRepository.findTop2ByOrderByIdAsc();
+  }catch(DataAccessException e) {
+  throw new RuntimeException ("エラーのため表示できません");
+    
+  }
+
 }
 
 }
