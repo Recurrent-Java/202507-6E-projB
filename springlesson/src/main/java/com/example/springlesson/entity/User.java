@@ -1,12 +1,14 @@
 package com.example.springlesson.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import lombok.Data;
@@ -20,7 +22,7 @@ public class User {
   @Id  // 主キーを表す
   @GeneratedValue(strategy = GenerationType.IDENTITY)  // AUTO_INCREMENTの場合付与が必要
   @Column(name="id")  // DB上のカラム名と変数名を別にしたい場合は必須
-  private Integer id;
+  private long id;
   
   @Column(name="email", nullable =false)  // DB上のカラム名と変数名を別にしたい場合は必須
   private String email;
@@ -45,11 +47,15 @@ public class User {
 
   @Column(name = "updated_at", insertable = false, updatable = false)
   private LocalDateTime updatedAt;
-
+  
+  @OneToMany(mappedBy = "user")
+  private List<UserAddress> addresses;
   // createdAt, updatedAt はDB側で自動設定するため、アプリケーション側では設定しない
 
   // lastLoginAt はログイン時に別で更新する
   public void updateLastLogin() {
       this.lastLoginAt = LocalDateTime.now();
+
+
   }
 }
