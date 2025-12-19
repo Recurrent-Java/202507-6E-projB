@@ -47,8 +47,8 @@ public class ProductService {
      * 商品詳細取得
      */
     @Transactional(readOnly = true)
-    public Product findById(Long id) {
-        return productRepository.findById(id)
+    public Product findById(Integer productId) {
+        return productRepository.findById(productId)
                 .orElseThrow(() ->
                         new IllegalArgumentException("商品が存在しません。"));
     }
