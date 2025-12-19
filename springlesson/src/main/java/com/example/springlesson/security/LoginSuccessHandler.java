@@ -24,12 +24,22 @@ public void onAuthenticationSuccess(HttpServletRequest request,
         HttpServletResponse response,
         Authentication authentication)
         throws IOException, ServletException {
-  
-    // ログイン成功時の処理をここに追加できます
+  try {
+    // ログイン成功時セッションスコープからユーザー情報取得
   UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
   User user = userDetails.getUser();
+  // 最終ログイン日時更新
   user.updateLastLogin();
+  // DBに保存
   userRepository.save(user);
   super.onAuthenticationSuccess(request, response, authentication);
+  }catch(IOException | ServletException e) {
+    //例外文言の表示
+    e.printStackTrace();
+    request.getSession().setAttribute("errMsg", "ログイン後処理でエラーが発生しました。");
+    
+    //任意のページにリダイレクト
+    response.sendRedirect("/error/error");
+  }
 }
 }

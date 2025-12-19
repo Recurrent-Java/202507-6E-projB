@@ -26,7 +26,7 @@ public class TopController {
       model.addAttribute("voiceList", voiceList);
       }catch(Exception e) {
       model.addAttribute("errMsg", e.getMessage());
-      return "error";  // error.htmlを呼び出す
+      return "/error/error";  // error.htmlを呼び出す
     }
 
     return "index";  // index.htmlを呼び出す

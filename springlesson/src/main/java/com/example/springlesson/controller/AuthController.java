@@ -1,7 +1,5 @@
 package com.example.springlesson.controller;
 
-import java.security.Principal;
-
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
@@ -36,11 +34,10 @@ public AuthController(AuthService authService ) {
     public String signUp() {
         return "/sign-up/sign-up";
     }
-  @PostMapping("sign-up")
+  @PostMapping("/sign-up")
     public String signUpPost( @Valid @ModelAttribute("RegistForm") RegistForm form,
         BindingResult bindingResult,
         HttpSession session,
-        Principal principal,
         Model model
         ) {
     if (bindingResult.hasErrors()) {
