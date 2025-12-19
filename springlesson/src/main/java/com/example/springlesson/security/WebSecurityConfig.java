@@ -26,7 +26,7 @@ public class WebSecurityConfig {
             .loginProcessingUrl("/admin/login") // 管理者ログインフォームの送信先URL
             .usernameParameter("email")  // ★これが重要！
             .passwordParameter("password")
-            .defaultSuccessUrl("/adminPage", true) // ログイン成功時のリダイレクト先URL
+            .defaultSuccessUrl("/admin/adminPage", true) // ログイン成功時のリダイレクト先URL
             .failureUrl("/admin/login?error") // ログイン失敗時のリダイレクト先URL
             .permitAll())
         .logout((logout) -> logout
