@@ -90,3 +90,9 @@
 .idx_voice_in td h3 {
   margin-bottom: 10px;
 }
+
+main,
+.index_main,
+.idx_buttons {
+  width: 100%;
+}

@@ -1,0 +1,304 @@
+/* 共通CSSをインポート
+-----------------------------------------------*/
+@import url("/static/css/base.css"); /* base.css を読み込む */
+
+
+
+/* 検索とカート
+----------------------------------------------- */
+.pro_search_cart {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* 左：検索 / 右：カート */
+    gap: 30px;
+    align-items: start;               /* 上揃え */
+}
+
+/* 商品の検索 */
+.pro_search_wrap {
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px 30px;
+    margin-bottom:50px;
+}
+
+h3.pro_h301 {
+    height: 30px;
+    margin-inline: auto;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #CE0000;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pro_search_in {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右2列 */
+    gap: 24px 40px;
+}
+
+.pro_search01 {
+    display: flex;
+    flex-direction: column;
+}
+
+.pro_search01 h4{
+    margin-bottom:10px;
+}
+
+
+
+/* キーワード検索フォーム */
+.pro_keyword form {
+    display: flex;
+    align-items: center;  /* 縦中央揃え */
+    gap: 10px;            /* input と button の間隔 */
+}
+
+.pro_keyword input {
+    flex: 1;             /* 入力欄が残り幅をすべて使う */
+    height: 45px;
+    padding: 0 8px;
+    border: 2px solid #E8A509;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.pro_keyword button {
+    width: 105px;
+    height: 42px;
+    border: none;
+    background-image: url("/static/images/pro_btn_search01.jpg"); /* 既存アイコン */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-indent: -9999px; /* ← テキスト非表示 */
+    overflow: hidden;
+}
+
+.pro_keyword button:hover {
+    opacity: 0.7;
+}
+
+/* 価格検索フォーム */
+.pro_price form {
+    display: flex;
+    align-items: center;  /* 縦中央揃え */
+    gap: 8px;            /* input と button の間隔 */
+}
+
+.pro_price input[type="number"] {
+    width: 90px;
+    height: 45px;
+    padding: 0 8px;
+    border: 2px solid #E8A509;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.pro_price {
+    white-space: normal;
+}
+
+.pro_price span {
+    white-space: nowrap;
+    color: #999999;
+}
+
+.pro_price button {
+    width: 105px;
+    height: 42px;
+    border: none;
+    background-image: url("/static/images/pro_btn_search01.jpg"); /* 既存アイコン */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-indent: -9999px; /* ← テキスト非表示 */
+    overflow: hidden;
+}
+
+.pro_price button:hover {
+    opacity: 0.7;
+}
+
+
+/* カテゴリーフォーム */
+.pro_category02 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;          /* ← ここ */
+    height: 48px;
+    padding: 0 .8em 0 .8em; /* 一旦リセット */
+    padding-right: 3.6em;  /* 矢印分の余白 */
+    border: 2px solid #E8A509;
+    border-radius: 3px;
+    color: #999;
+    font-size: 1em;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.pro_category02 {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.pro_category02::before,
+.pro_category02::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.pro_category02::before {
+    right: 0;
+    top: 0;
+    display: inline-block;
+    width: 2.8em;
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+    background-color: #E8A509;
+    content: '';
+}
+
+.pro_category02::after {
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    content: '';
+}
+
+.pro_category02 select:focus {
+    outline: 1px solid #E8A509;
+}
+
+/* アレルギー情報はこちら */
+.pro_allergy01 a:hover {
+    opacity: 0.7;
+}
+
+/* カート */
+.pro_cart_wrap {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.pro_cart_in {
+    padding:0px 10px;
+}
+
+.pro_cart_in h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pro_cart_in th, .pro_cart_in td {
+    padding: 7px ;
+}
+
+.pro_cart_in th {
+    text-align: left;
+}
+
+.pro_cart_in table {
+    margin-bottom:12px;
+}
+
+.pro_cart_in p {
+    text-align: center;
+}
+
+.pro_cart_in a:hover {
+    opacity: 0.7;
+}
+
+/* 商品一覧 */
+
+@media (max-width: 900px) {
+    .product_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .product_list {
+        grid-template-columns: 1fr;
+    }
+
+    .pro_search_cart {
+        grid-template-columns: 1fr;
+        }
+
+    .pro_cart_wrap {
+        position: static;
+    }
+}
+
+.product_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.product_card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom:50px;
+}
+
+.product_img {
+    margin-bottom: 10px;
+}
+
+.product_name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.product_qty {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    margin-bottom: 10px;
+}
+
+.qty_btn {
+    font-size: 2rem;
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+    background-color: #FFF;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+}
+
+.qty_num {
+    font-size: 2rem;
+    min-width: 30px;
+    text-align: center;
+    background-color: #FFF;
+    line-height: 28px;
+    border-radius: 2px;
+    border: 1px solid #CCC;
+}
+
+.product_detail a{
+    text-align: center;
+}
+
+.product_detail a:hover {
+    opacity: 0.7;
+}
+

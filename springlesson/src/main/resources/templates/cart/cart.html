@@ -1,50 +1,176 @@
 <!DOCTYPE html>
-<!-- Thymeleafを使用するための記述 -->
 <html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-  <div th:replace="~{comlayout/base :: meta}"></div>
-  <div th:replace="~{comlayout/base :: styles}"></div>
 
-  <title>カートページ</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no"><!-- モバイルデバイスで閲覧する際、電話番号を自動的に検出しないようにする -->
+  <meta name="description" content="【寿司処リカレント】お寿司の出前・デリバリー・配達の注文なら、宅配寿司の「寿司処リカレント」で。お家からネットで簡単に注文できます。">
+  <!-- favicon -->
+  <link rel="icon" href="/static/images/favicon.ico">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Reset CSS -->
+  <link rel="stylesheet" href="/static/css/html5reset-1.6.1.css">
+  <!-- Original CSS -->
+  <link rel="stylesheet" href="/static/css/cart.css">
+  <title>カート | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
 <body>
-  <div th:replace="~{comlayout/base :: header}"></div>
-  <div th:replace="~{comlayout/base :: nav}"></div>
-  <main id="cart">
-    <!-- cartが空でない場合 -->
-    <p th:if="${cart}">
-      [[${#lists.size(cart)}]]種類の商品があります。
-    </p>
-    <!-- cartが空の場合 -->
-    <p th:unless="${cart}">
-      カートに商品がありません
-    </p>
-    <hr>
-    <table>
-      <tr>
-        <th colspan="2">商品</th>
-        <th>商品名</th>
-        <th>価格</th>
-        <th>個数</th>
-        <th>購入</th>
-      </tr>
-      <tr th:each="item : ${cart}">
-        <td th:text="${item.product.id }"></td>
-        <td><img th:src="@{/images/{id}.jpg(id=${item.product.id})}" 
-                 th:alt="${item.product.name}"></td>
-        <td th:text="${item.product.name}"></td>
-        <td th:text="${item.product.price}"></td>
-        <td th:text="${item.count + '個'}"></td>
-        <td>
-          <a th:href="@{/cart/remove(id=${item.product.id})}">
-          カートから削除
-          </a>
-        </td>
-      </tr>
-    </table>
-  </main>
-  <div th:replace="~{comlayout/base :: footer}"></div>
+  <div class="wrapper">
+    <div class="inner" id="unique_cart_area">
+
+      <!-- ヘッダー -->
+      <header>
+        <h1><a href="index.html"><img class="hd_logo" src="/static/images/hd_logo.png" alt="宅配寿司 寿司処リカレント"></a></h1>
+        <div class="hd_copy">
+          <p class="hd_copy01">今日はおうちで、ちょっと贅沢。</p>
+          <p>家族みんなで楽しめる宅配寿司。</p>
+        </div>
+      </header><!-- ヘッダー END -->
+
+      <!-- ナビゲーション -->
+      <nav>
+        <ul>
+          <li><a href="cart/cart.html" class="nav_cart">カート</a></li>
+          <li><a href="product/product.html" class="nav_product">商品一覧</a></li>
+          <li><a href="signup/checkSi.html" class="nav_login">会員登録/ログイン</a></li>
+          <li><a href="voice/voice-vi.html" class="nav_voice">お客様のご意見/ご感想</a></li>
+        </ul>
+      </nav><!-- ナビゲーション END -->
+
+      <!-- メイン -->
+      <main>
+        <h2 class="mn_h201">カート</h2>
+        <ol class="mn_pankuzu">
+          <li><a href="/">TOPページ</a></li>
+          <li><a href="/">商品一覧</a></li>
+          <li>カート</li>
+        </ol>
+
+        <div class="cart_wrap">
+
+          <!-- フロー図 -->
+          <div class="progressbar">
+            <div class="item active">STEP.1<br>購入商品の確認</div>
+            <div class="item">STEP.2<br>お届け先を設定</div>
+            <div class="item">STEP.3<br>最終確認</div>
+            <div class="item">STEP.3<br>購入完了</div>
+          </div>
+
+          <table>
+            <tr>
+              <th colspan="2">商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>削除</th>
+            </tr>
+            <tr>
+              <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+              <td class="td_name">商品名商品名商品名</td>
+              <td class="td_price01">200円</td>
+              <td class="td_count">
+                <div class="product_qty">
+                  <button class="qty_btn">ー</button>
+                  <span class="qty_num">3</span>
+                  <button class="qty_btn">＋</button>
+                </div>
+              </td>
+              <td class="td_price01">600円</td>
+              <td class="td_delete"><button>削除</button></td>
+            </tr>
+            <tr>
+              <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+              <td class="td_name">商品名商品名商品名</td>
+              <td class="td_price01">200円</td>
+              <td class="td_count">
+                <div class="product_qty">
+                  <button class="qty_btn">ー</button>
+                  <span class="qty_num">3</span>
+                  <button class="qty_btn">＋</button>
+                </div>
+              </td>
+              <td class="td_price01">600円</td>
+              <td class="td_delete"><button>削除</button></td>
+            </tr>
+            <tr>
+              <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+              <td class="td_name">商品名商品名商品名</td>
+              <td class="td_price01">200円</td>
+              <td class="td_count">
+                <div class="product_qty">
+                  <button class="qty_btn">ー</button>
+                  <span class="qty_num">3</span>
+                  <button class="qty_btn">＋</button>
+                </div>
+              </td>
+              <td class="td_price01">600円</td>
+              <td class="td_delete"><button>削除</button></td>
+            </tr>
+            <tr>
+              <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+              <td class="td_name">商品名商品名商品名</td>
+              <td class="td_price01">200円</td>
+              <td class="td_count">
+                <div class="product_qty">
+                  <button class="qty_btn">ー</button>
+                  <span class="qty_num">3</span>
+                  <button class="qty_btn">＋</button>
+                </div>
+              </td>
+              <td class="td_price01">600円</td>
+              <td class="td_delete"><button>削除</button></td>
+            </tr>
+            <tr class="td_total01">
+              <td colspan="5">商品合計(税込)</td>
+              <td>2,500円</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="cart_btnarea">
+          <div class="btn_product">
+            <a href=""><i class="fas fa-angle-double-left fa-position-right"></i>商品一覧に戻る</a>
+          </div>
+          <div class="btn_purchase">
+            <a href="">お届け先を設定<i class="fas fa-angle-double-right fa-position-left"></i></a>
+          </div>
+        </div>
+
+
+
+
+      </main><!-- メイン END -->
+    </div><!-- inner END -->
+
+    <!-- フッター -->
+    <footer>
+      <div class="ft_sitemap">
+        <ul class="smul01">
+          <li><a href="">初めての方へ</a></li>
+          <li><a href="cart/cart.html">カート</a></li>
+          <li><a href="product/product.html">商品一覧</a></li>
+          <li><a href="signup/checkSi.html">会員登録/ログイン</a></li>
+          <li><a href="voice/voice-vi.html">お客様のご意見/ご感想</a></li>
+        </ul>
+        <ul>
+          <li><a href="">サイトマップ</a></li>
+          <li><a href="">お問い合わせ</a></li>
+          <li><a href="">ご利用規約</a></li>
+          <li><a href="">特定商取引表示</a></li>
+        </ul>
+      </div>
+      <div class="ft_copy">
+        <small>&copy;SUSHIDOKORO RECURRENT CO.,LTD.ALL RIGHTS RESERVED.</small>
+      </div>
+    </footer>
+    <!-- フッター END -->
+
+
+
+  </div><!-- wrapper END -->
 </body>
 
 </html>

@@ -8,16 +8,18 @@
   <meta name="description" content="【寿司処リカレント】お寿司の出前・デリバリー・配達の注文なら、宅配寿司の「寿司処リカレント」で。お家からネットで簡単に注文できます。">
   <!-- favicon -->
   <link rel="icon" href="/static/images/favicon.ico">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Reset CSS -->
   <link rel="stylesheet" href="/static/css/html5reset-1.6.1.css">
   <!-- Original CSS -->
-  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="stylesheet" href="/static/css/signup.css">
   <title>新規会員登録 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
 <body>
   <div class="wrapper">
-    <div class="inner">
+    <div class="inner" id="unique_signup_area">
 
       <!-- ヘッダー -->
       <header>
@@ -47,76 +49,91 @@
         </ol>
 
         <div class="sig_formarea">
+
+          <!-- フロー図 -->
+          <div class="progressbar">
+            <div class="item active">STEP.1<br>登録情報のご入力</div>
+            <div class="item">STEP.2<br>ご確認</div>
+            <div class="item">STEP.4<br>完了(マイページへ)</div>
+          </div>
+
+          <div class="sig_txtarea">
+            <p>ご注文には必ず会員登録が必要になります。</p>
+            <p>会員登録いただけると、今までの注文履歴が閲覧できたり、住所入力などの手間が省けます。</p>
+            <p class="sig_login">すでに会員の方はこちらから<a href="">ログイン</a></p>
+          </div>
+
           <form action="" method="post" object="">
+
             <!-- お名前 -->
-            <h3><label>お名前<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <input type="text"　name="name" field=""><span class="form_error" if="" errors=""></span>
+              <label>お名前<span class="form_required">必須</span></label>
+              <input type="text" field=""><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- メールアドレス -->
-            <h3><label>メールアドレス<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <input type="text" name="email" field=""><span class="form_error" if="" errors=""></span>
+              <label>メールアドレス<span class="form_required">必須</span></label>
+              <input type="text" field=""><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- パスワード -->
-            <h3><label>パスワード<span class="form_required">必須</span></label></h3>
-            <p class="form_attention">半角英数4文字以上で入力してください。</p>
             <div class="sig_form_txt">
-              <input type="password" name="password" id=""><span class="form_error" if="" errors=""></span>
+              <label>パスワード<span class="form_required">必須</span></label>
+
+              <input type="password" name="" id=""><span class="form_error" if="" errors=""></span>
+              <p class="form_attention">半角英数4文字以上で入力してください。</p>
             </div>
 
             <!-- 電話番号 -->
-            <h3><label>電話番号</label></h3>
             <div class="sig_form_txt">
-              <input type="tel" name="phone_number" id="pass"><span class="form_error" if="" errors=""></span>
+              <label>電話番号</label>
+              <input type="tel" name="" id="pass"><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- 郵便番号 -->
-            <h3><label>郵便番号<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <input type="tel" name="postal_code" id="pass"><span class="form_error" if="" errors=""></span>
+              <label>郵便番号<span class="form_required">必須</span></label>
+              <input type="tel" name="" id="pass"><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- 都道府県 -->
-            <h3><label>都道府県<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <input type="text" name="prefecture" id="" list="" autocomplete="off"><span class="form_error" if=""
+              <label>都道府県<span class="form_required">必須</span></label>
+              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- 住所１ -->
-            <h3><label>住所：市区町村、番地<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <input type="text" name="address1" id="" list="" autocomplete="off"><span class="form_error" if=""
+              <label>市区町村、番地<span class="form_required">必須</span></label>
+              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- 住所２ -->
-            <h3><label>住所：建物名、部屋番号</label></h3>
             <div class="sig_form_txt">
-              <input type="text" name="address2" id="" list="" autocomplete="off"><span class="form_error" if=""
+              <label>建物名、部屋番号</label>
+              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- DM通知設定 -->
-            <h3>DMの受信設定<span class="form_required">必須</span></h3>
-            <p class="form_attention">ご登録のメールアドレス宛てにキャンペーンなどお得な情報をお知らせします。</p>
-            <div class="sig_form_txt">
-              <label for="">受信する：</label><input type="radio" name="email" value="1" id="" checked>
-              <label for="">受信しない：</label><input type="radio" name="email" value="0" id="">
+            <div class="sig_form_txt sig_form_dm">
+              <label>DMの受信設定<span class="form_required">必須</span></label>
+              受信する：<input type="radio" name="" value="" id="" checked>
+              受信しない：<input type="radio" name="" value="" id="">
             </div>
 
             <div class="sig_form_btn">
-              <button type="submit">確認画面へ</button>
+              <button type="submit">確認画面へ<i class="fas fa-angle-double-right fa-position-left"></i></button>
             </div>
           </form>
 
-          <p class="sig_login">すでに会員の方はこちらから<a href="">ログイン</a></p>
+
         </div>
 
       </main><!-- メイン END -->
