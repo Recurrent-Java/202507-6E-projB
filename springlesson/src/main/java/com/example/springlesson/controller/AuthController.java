@@ -45,11 +45,11 @@ public AuthController(AuthService authService ) {
         ) {
     if (bindingResult.hasErrors()) {
       //エラー時の処理
-      return "/error/error";
+      return "/sign-up/sign-up";
     }
     try {
    authService.SaveUser(form);
-      return "login/login";
+      return "mypage/mypage";
     } catch (Exception e) {
       //例外発生時の処理
       model.addAttribute("errMsg", "ユーザー登録に失敗しました。");

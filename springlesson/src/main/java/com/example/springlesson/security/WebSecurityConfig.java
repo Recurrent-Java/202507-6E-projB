@@ -25,8 +25,8 @@ public class WebSecurityConfig {
             .anyRequest().authenticated() // 上記以外のURLはログインが必要（会員または管理者のどちらでもOK）
         )
         .formLogin((form) -> form
-            .loginPage("/login") // ログインページのURL
-            .loginProcessingUrl("/login") // ログインフォームの送信先URL
+            .loginPage("/login/login") // ログインページのURL
+            .loginProcessingUrl("/auth/login") // ログインフォームの送信先URL
             .usernameParameter("email")  // ★これが重要！
             .passwordParameter("password")
             .defaultSuccessUrl("/?loggedIn=true", true) // ログイン成功時のリダイレクト先URL
