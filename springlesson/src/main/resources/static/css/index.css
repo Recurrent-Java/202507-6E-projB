@@ -1,6 +1,7 @@
 /* 共通CSSをインポート
 -----------------------------------------------*/
-@import url("/static/css/base.css"); /* base.css を読み込む */
+@charset "UTF-8";
+@import url("/css/base.css"); /* base.css を読み込む */
 
 
 /* メインエリア
