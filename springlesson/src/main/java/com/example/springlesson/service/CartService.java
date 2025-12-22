@@ -28,7 +28,7 @@ public class CartService {
     }
 
     // カート追加
-    public void add(User user, Integer productId, Integer quantity) {
+    public void add(User user, Long productId, Integer quantity) {
         if (quantity == null || quantity <= 0) return;
 
         Product product = productService.findById(productId);
@@ -48,7 +48,7 @@ public class CartService {
     }
 
     // 数量変更
-    public void updateQuantity(User user, Integer productId, Integer quantity) {
+    public void updateQuantity(User user, Long productId, Integer quantity) {
         Product product = productService.findById(productId);
 
         cartItemRepository.findByUserAndProduct(user, product).ifPresent(item -> {
@@ -61,7 +61,7 @@ public class CartService {
     }
 
     // 削除
-    public void remove(User user, Integer productId) {
+    public void remove(User user, Long productId) {
         Product product = productService.findById(productId);
 
         cartItemRepository.findByUserAndProduct(user, product).ifPresent(cartItemRepository::delete);

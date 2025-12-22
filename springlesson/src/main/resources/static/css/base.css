@@ -107,6 +107,7 @@ a.nav_voice:hover {background-image: url(/static/images/nv_voice_on.jpg);}
 #unique_product_area a.nav_product {background-image: url(/static/images/nv_product_on.jpg);}
 #unique_login_area a.nav_login {background-image: url(/static/images/nv_login_on01.jpg);}
 #unique_voice_area a.nav_voice {background-image: url(/static/images/nv_voice_on.jpg);}
+a.nav_log_mypageoff {background-image: url(/static/images/nv_login_on03.jpg);}
 
 
 /* メインエリア

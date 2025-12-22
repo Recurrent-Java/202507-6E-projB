@@ -40,7 +40,7 @@ public String cart(@AuthenticationPrincipal UserDetailsImpl principal,
 
   @PostMapping("/add")
   public String add(@AuthenticationPrincipal UserDetailsImpl principal,
-                    @RequestParam Integer productId,
+                    @RequestParam Long productId,
                     @RequestParam Integer quantity) {
 
     cartService.add(principal.getUser(), productId, quantity);
@@ -49,7 +49,7 @@ public String cart(@AuthenticationPrincipal UserDetailsImpl principal,
 
   @PostMapping("/update")
   public String update(@AuthenticationPrincipal UserDetailsImpl principal,
-                       @RequestParam Integer productId,
+                       @RequestParam Long productId,
                        @RequestParam Integer quantity) {
 
     cartService.updateQuantity(principal.getUser(), productId, quantity);
@@ -58,7 +58,7 @@ public String cart(@AuthenticationPrincipal UserDetailsImpl principal,
 
   @PostMapping("/remove")
   public String remove(@AuthenticationPrincipal UserDetailsImpl principal,
-                       @RequestParam Integer productId) {
+                       @RequestParam Long productId) {
 
     cartService.remove(principal.getUser(), productId);
     return "redirect:/cart";
