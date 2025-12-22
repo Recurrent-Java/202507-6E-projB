@@ -1,7 +1,6 @@
 /* 共通CSSをインポート
 -----------------------------------------------*/
 @charset "UTF-8";
-@import url("/css/base.css"); /* base.css を読み込む */
 
 
 /* メインエリア
@@ -46,7 +45,7 @@
 .idx_voice_wrap {
   padding: 25px;
   background-size: 100% 100%;
-  background-image: url(/static/images/idx_bg_voice01.jpg);
+  background-image: url(/images/idx_bg_voice01.jpg);
   border-radius: 10px;
 }
 
@@ -54,7 +53,7 @@
   width: 433px;
   height: 53px;
   background-size: 100% 100%;
-  background-image: url(/static/images/idx_tit_voice01.png);
+  background-image: url(/images/idx_tit_voice01.png);
   margin-inline: auto;
   text-indent: -9999px; /* ← テキスト非表示 */
   overflow: hidden;
