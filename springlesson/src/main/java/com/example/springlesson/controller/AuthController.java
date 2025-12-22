@@ -31,11 +31,12 @@ public AuthController(AuthService authService ) {
         return "login/login";
     }
   @GetMapping("/sign-up")
-    public String signUp() {
+    public String signUp( Model model) {
+    model.addAttribute("registForm", new RegistForm());
         return "signup/signup";
     }
   @PostMapping("/sign-up")
-    public String signUpPost( @Valid @ModelAttribute("RegistForm") RegistForm form,
+    public String signUpPost( @Valid @ModelAttribute("registForm") RegistForm form,
         BindingResult bindingResult,
         HttpSession session,
         Model model

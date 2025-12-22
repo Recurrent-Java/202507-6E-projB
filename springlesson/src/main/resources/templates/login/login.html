@@ -25,10 +25,10 @@
         </ol>
 
         <div class="log_area">
-          <form th:action="@{/login}" method="post" id="login">
+          <form th:action="@{/auth/login}" method="post" id="login">
             <div class="log_form">
               <p><label>ログイン名（メールアドレス）</label></p>
-              <input type="text" name="login">
+              <input type="text" name="email">
             </div>
             <div class="log_form">
               <p><label>パスワード</label></p>
