@@ -41,7 +41,7 @@
         <li><a th:href="@{/cart}" class="nav_cart">カート</a></li>
         <li><a th:href="@{/product}" class="nav_product">商品一覧</a></li>
         <!-- ▼ 未ログインで表示 -->
-        <li sec:authorize="isAnonymous()"><a th:href="@{/login}" class="nav_login">会員登録/ログイン</a></li>
+        <li sec:authorize="isAnonymous()"><a th:href="@{auth/login}" class="nav_login">会員登録/ログイン</a></li>
         <!-- ▼ ログイン済みで表示 -->
         <li sec:authorize="isAuthenticated()">
           <a th:href="@{/logout}" class="nav_log_mypageoff"
@@ -65,7 +65,7 @@
           <li><a th:href="@{/cart}">カート</a></li>
           <li><a th:href="@{/product}">商品一覧</a></li>
           <!-- ▼ 未ログインで表示 -->
-          <li sec:authorize="isAnonymous()"><a th:href="@{/login}">会員登録/ログイン</a></li>
+          <li sec:authorize="isAnonymous()"><a th:href="@{auth/login}">会員登録/ログイン</a></li>
           <!-- ▼ ログイン済みで表示 -->
           <li sec:authorize="isAuthenticated()">
             <a th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

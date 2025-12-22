@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.springlesson.entity.Product;
 import com.example.springlesson.entity.User;
 import com.example.springlesson.form.AdminCustomerForm;
 import com.example.springlesson.service.AdminService;
@@ -27,6 +28,11 @@ public class AdminController {
   public AdminController( AdminService adminService) {
     this.adminService = adminService;
    
+  }
+  
+  @GetMapping("/login")
+  public String login() {
+    return "admin/login";
   }
   @GetMapping("/userManagement")
   public String userManagement(Model model) {
@@ -47,7 +53,7 @@ public class AdminController {
       Model model) {
     if (bindingResult.hasErrors()) {
       //エラー時の処理
-      return "admin/userManagement/";
+      return "admin/userManagement";
     }
     try {
       List<User> userList = adminService.findByIdIn(form.getUserIds());
@@ -69,9 +75,20 @@ public class AdminController {
         adminService.disableUser(user.getId());
       }
       session.removeAttribute("userCheckList");
-      return "/admin/finish";
+      return "admin/finish";
     } catch (Exception e) {
       model.addAttribute("errorMessage", "ユーザーの無効化中にエラーが発生しました。");
+      return "error/error";
+    }
+  }
+  @GetMapping("/productManagement")
+  public String productManagement(Model model) {
+    try {
+      List<Product> productList = adminService.findAllProducts();
+      model.addAttribute("productList", productList);
+      return "admin/adminProduct";
+    } catch (Exception e) {
+      model.addAttribute("errMsg", "商品情報の取得中にエラーが発生しました。");
       return "error/error";
     }
   }
