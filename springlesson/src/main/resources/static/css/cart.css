@@ -1,19 +1,16 @@
-/* 共通CSSをインポート
------------------------------------------------*/
-@import url("/static/css/base.css"); /* base.css を読み込む */
-
+@charset "UTF-8";
 
 /* フロー図
 -----------------------------------------------*/
-/* form-nav */
 .progressbar {
     display: flex;
     flex-wrap: wrap;
     margin-bottom:50px;
 }
+
 .progressbar .item {
     position: relative;
-    width: 25   %;
+    width: 25%;
     text-align: center;
     position: relative;
     align-items: center;
@@ -23,6 +20,7 @@
     background: #F5F5F5;
     color: #999999;
 }
+
 .progressbar .item:not(:last-child)::before,
 .progressbar .item:not(:last-child)::after {
     position: absolute;
@@ -164,6 +162,9 @@ tr.td_total01 td:last-child {
     color: #CE0000;
 }
 
+
+/* ボタン
+-----------------------------------------------*/
 .cart_btnarea {
     width: 650px;
     margin-inline: auto;

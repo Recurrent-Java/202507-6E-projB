@@ -135,7 +135,7 @@ p.form_attention {
 .sig_form_btn button{
   width: 260px;
   font-size: 18px;
-  display: inpine-block;
+  display: inline-block;
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
