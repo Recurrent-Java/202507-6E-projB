@@ -5,7 +5,7 @@
   <div th:replace="~{comlayout/base :: meta}"></div>
   <div th:replace="~{comlayout/base :: styles}"></div>
   <!-- Original CSS -->
-  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="stylesheet" href="/css/index.css">
   <title>宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
@@ -19,12 +19,12 @@
       <!-- メイン -->
       <main>
         <div class="index_main">
-          <img src="/static/images/idx_main01.jpg" alt="寿司処リカレントだからできる作り置きなし！毎日新鮮なお寿司をお手頃価格でご自宅にお届けします。">
+          <img th:src="@{/images/idx_main01.jpg}" alt="寿司処リカレントだからできる作り置きなし！毎日新鮮なお寿司をお手頃価格でご自宅にお届けします。">
         </div>
 
         <div class="idx_buttons">
-          <a href="signup/signup.html"><img src="/static/images/idx_btn_newuser01.png"></a>
-          <a href="product/product.html"><img src="/static/images/idx_btn_product01.png"></a>
+          <a th:href="@{/sign-up}"><img th:src="@{/images/idx_btn_newuser01.png}"></a>
+          <a th:href="@{/product}"><img th:src="@{/images/idx_btn_product01.png}"></a>
         </div>
 
         <div class="idx_voice_wrap">
@@ -32,7 +32,7 @@
           <div class="idx_voice_in">
             <table>
               <tr>
-                <th><img src="/static/images/voc_dicon01.jpg" alt="ユーザー名01"></th>
+                <th><img th:src="@{/images/voc_dicon01.jpg}" alt="ユーザー名01"></th>
                 <td>
                   <h3>新鮮</h3>
                   <p>新鮮で美味しいネタがすぐに届いてうれしかった。<br>
@@ -41,7 +41,7 @@
                 </td>
               </tr>
               <tr>
-                <th><img src="/static/images/voc_dicon01.jpg" alt="ユーザー名01"></th>
+                <th><img th:src="@{/images/voc_dicon01.jpg}" alt="ユーザー名01"></th>
                 <td>
                   <h3>新鮮</h3>
                   <p>新鮮で美味しいネタがすぐに届いてうれしかった。<br>
