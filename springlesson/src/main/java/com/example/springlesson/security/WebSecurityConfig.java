@@ -44,6 +44,7 @@ public class WebSecurityConfig {
         .authorizeHttpRequests((requests) -> requests
             .requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**").permitAll() // すべてのユーザーにアクセスを許可するURL
             .requestMatchers("/").permitAll()
+            .requestMatchers("/", "/login", "/auth/login").permitAll()
             .requestMatchers("/product/**").permitAll()
             .requestMatchers("/cart/**").permitAll()
             .requestMatchers("/purchase/**").permitAll()
@@ -51,7 +52,7 @@ public class WebSecurityConfig {
             .anyRequest().authenticated() // 上記以外のURLはログインが必要（会員または管理者のどちらでもOK）
         )
         .formLogin((form) -> form
-            .loginPage("/login/login") // ログインページのURL
+            .loginPage("/login") // ログインページのURL
             .loginProcessingUrl("/auth/login") // ログインフォームの送信先URL
             .usernameParameter("email")  // ★これが重要！
             .passwordParameter("password")
