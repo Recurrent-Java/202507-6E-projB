@@ -107,13 +107,21 @@
 
             <!-- 住所１ -->
             <div class="sig_form_txt">
-              <label>市区町村、番地<span class="form_required">必須</span></label>
+              <label>市区町村<span class="form_required">必須</span></label>
+              <input type="text" th:field="*{city}" id="" list="" autocomplete="off"><span class="form_error" if=""
+                errors=""></span>
+              <datalist id=""></datalist>
+            </div>
+            
+            <!-- 住所２ -->
+            <div class="sig_form_txt">
+              <label>番地<span class="form_required">必須</span></label>
               <input type="text" th:field="*{city}" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
-            <!-- 住所２ -->
+            <!-- 住所３ -->
             <div class="sig_form_txt">
               <label>建物名、部屋番号</label>
               <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""

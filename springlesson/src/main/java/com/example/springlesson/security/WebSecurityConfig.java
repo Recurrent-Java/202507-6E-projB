@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class WebSecurityConfig {
-  @Order(2)
+  @Order(1)
   @Bean
   public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
     http
@@ -37,7 +37,7 @@ public class WebSecurityConfig {
 
     return http.build();
   }
-  @Order(1)
+  @Order(2)
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
