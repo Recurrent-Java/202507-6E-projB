@@ -2,6 +2,7 @@ package com.example.springlesson.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class WebSecurityConfig {
+  @Order(2)
   @Bean
   public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
     http
@@ -35,6 +37,7 @@ public class WebSecurityConfig {
 
     return http.build();
   }
+  @Order(1)
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http

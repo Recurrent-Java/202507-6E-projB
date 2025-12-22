@@ -63,44 +63,44 @@
             <p class="sig_login">すでに会員の方はこちらから<a href="">ログイン</a></p>
           </div>
 
-          <form action="" method="post" object="">
+          <form action="/auth/sign-up" method="post" th:object="${registForm}">
 
             <!-- お名前 -->
             <div class="sig_form_txt">
               <label>お名前<span class="form_required">必須</span></label>
-              <input type="text" field=""><span class="form_error" if="" errors=""></span>
+              <input type="text"  th:field="*{name}"><span class="form_error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
 
             <!-- メールアドレス -->
             <div class="sig_form_txt">
               <label>メールアドレス<span class="form_required">必須</span></label>
-              <input type="text" field=""><span class="form_error" if="" errors=""></span>
+              <input type="text" th:field="*{email}"><span class="form_error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             </div>
 
             <!-- パスワード -->
             <div class="sig_form_txt">
               <label>パスワード<span class="form_required">必須</span></label>
 
-              <input type="password" name="" id=""><span class="form_error" if="" errors=""></span>
+              <input type="password" th:field="*{password}" id=""><span class="form_error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
               <p class="form_attention">半角英数4文字以上で入力してください。</p>
             </div>
 
             <!-- 電話番号 -->
             <div class="sig_form_txt">
               <label>電話番号</label>
-              <input type="tel" name="" id="pass"><span class="form_error" if="" errors=""></span>
+              <input type="tel" th:field="*{phoneNumber}" id="pass"><span class="form_error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
             </div>
 
             <!-- 郵便番号 -->
             <div class="sig_form_txt">
               <label>郵便番号<span class="form_required">必須</span></label>
-              <input type="tel" name="" id="pass"><span class="form_error" if="" errors=""></span>
+              <input type="tel" th:field="*{postalCode}" id="pass"><span class="form_error" th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}"></span>
             </div>
 
             <!-- 都道府県 -->
             <div class="sig_form_txt">
               <label>都道府県<span class="form_required">必須</span></label>
-              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
+              <input type="text" th:field="*{prefecture}" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
@@ -108,7 +108,7 @@
             <!-- 住所１ -->
             <div class="sig_form_txt">
               <label>市区町村、番地<span class="form_required">必須</span></label>
-              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
+              <input type="text" th:field="*{city}" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
