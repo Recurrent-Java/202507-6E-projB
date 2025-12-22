@@ -23,13 +23,13 @@ private final ProductRepository productRepository;
     this.productRepository = productRepository;
   }
   @Transactional
-  public void deleteUser(Long userId) {
+  public void disableUser(Long userId) {
   User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("ユーザーが見つかりません。ID: " + userId));
       
   user.setWithdrawFlag(false);
 }
   @Transactional
-  public void deleteProduct(Long productId) {
+  public void disableProduct(Long productId) {
    Product Product = productRepository.findById(productId).orElseThrow(() -> new IllegalArgumentException("商品が見つかりません。ID: " + productId));
     Product.setIsActive(false);
   }
@@ -41,9 +41,11 @@ private final ProductRepository productRepository;
   public List<Product> findAllProducts() {
     return productRepository.findAll();
   }
+
     @Transactional 
     public List<User> findByIdIn(List<Long> userIds) {
       return  userRepository.findByIdIn(userIds);
     }
   }
+
   

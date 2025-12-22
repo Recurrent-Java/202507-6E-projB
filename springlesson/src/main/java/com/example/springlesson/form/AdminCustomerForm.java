@@ -15,7 +15,7 @@ public class AdminCustomerForm {
   public List<Long> getUserIds() {
     return userIds;
   }
-  public void setUserId(List<Long> userIds) {
+  public void setUserIds(List<Long> userIds) {
     this.userIds = userIds;
  }
  

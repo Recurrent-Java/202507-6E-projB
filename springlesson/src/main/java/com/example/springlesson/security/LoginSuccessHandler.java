@@ -30,6 +30,7 @@ public void onAuthenticationSuccess(HttpServletRequest request,
   User user = userDetails.getUser();
   // 最終ログイン日時更新
   user.updateLastLogin();
+ request.getSession().setAttribute("userInf", user);
   // DBに保存
   userRepository.save(user);
   super.onAuthenticationSuccess(request, response, authentication);
@@ -41,5 +42,6 @@ public void onAuthenticationSuccess(HttpServletRequest request,
     //任意のページにリダイレクト
     response.sendRedirect("/error/error");
   }
+ 
 }
 }
