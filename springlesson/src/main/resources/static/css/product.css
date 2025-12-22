@@ -1,10 +1,7 @@
-/* 共通CSSをインポート
------------------------------------------------*/
-@import url("/static/css/base.css"); /* base.css を読み込む */
+@charset "UTF-8";
 
 
-
-/* 検索とカート
+/* 商品一覧
 ----------------------------------------------- */
 .pro_search_cart {
     display: grid;
@@ -67,7 +64,7 @@ h3.pro_h301 {
     width: 105px;
     height: 42px;
     border: none;
-    background-image: url("/static/images/pro_btn_search01.jpg"); /* 既存アイコン */
+    background-image: url("../images/pro_btn_search01.jpg"); /* 既存アイコン */
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -109,7 +106,7 @@ h3.pro_h301 {
     width: 105px;
     height: 42px;
     border: none;
-    background-image: url("/static/images/pro_btn_search01.jpg"); /* 既存アイコン */
+    background-image: url("../images/pro_btn_search01.jpg"); /* 既存アイコン */
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -263,7 +260,15 @@ h3.pro_h301 {
 
 .product_name {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.product_price {
+    color: #CE0000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -302,3 +307,35 @@ h3.pro_h301 {
     opacity: 0.7;
 }
 
+/* 商品詳細
+----------------------------------------------- */
+.pro_dt_area {
+    width: 850px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pro_dt_area h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.pro_dt_area p{
+    margin-bottom: 30px;
+}
+
+p.dt_txt {
+    line-height: 1.5em;
+}
+
+p.dt_price {
+    color: #CE0000;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+p.dt_btn a:hover {
+    opacity: 0.7;
+}
