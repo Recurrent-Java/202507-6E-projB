@@ -3,20 +3,22 @@ package com.example.springlesson.service;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Service;
 
-import com.example.springlesson.entity.Voice;
-import com.example.springlesson.repository.VoiceRepository;
+import com.example.springlesson.entity.Review;
+import com.example.springlesson.repository.ReviewRepository;
 
+@Service
 public class TopService {
-private final VoiceRepository voiceRepository;
+private final ReviewRepository reviewRepository;
 
-public TopService(VoiceRepository voiceRepository) {
-  this.voiceRepository = voiceRepository;
+public TopService(ReviewRepository reviewRepository) {
+  this.reviewRepository = reviewRepository;
 }
 
-public List<Voice> getTop2Voices() {
+public List<Review> getTop2Reviews() {
   try {
-    return voiceRepository.findTop2ByOrderByIdAsc();
+    return reviewRepository.findTop2ByOrderByIdAsc();
   }catch(DataAccessException e) {
   throw new RuntimeException ("エラーのため表示できません");
     

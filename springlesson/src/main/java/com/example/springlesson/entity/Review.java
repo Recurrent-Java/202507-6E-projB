@@ -16,7 +16,7 @@ import lombok.Data;
 @Entity
 @Table(name = "reviews")
 @Data
-public class Voice {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
