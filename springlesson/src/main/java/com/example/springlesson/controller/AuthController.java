@@ -32,7 +32,7 @@ public AuthController(AuthService authService ) {
     }
   @GetMapping("/sign-up")
     public String signUp() {
-        return "/sign-up/sign-up";
+        return "signup/signup";
     }
   @PostMapping("/sign-up")
     public String signUpPost( @Valid @ModelAttribute("RegistForm") RegistForm form,
@@ -42,7 +42,7 @@ public AuthController(AuthService authService ) {
         ) {
     if (bindingResult.hasErrors()) {
       //エラー時の処理
-      return "/sign-up/sign-up";
+      return "signup/signup";
     }
     try {
    authService.SaveUser(form);
@@ -50,7 +50,7 @@ public AuthController(AuthService authService ) {
     } catch (Exception e) {
       //例外発生時の処理
       model.addAttribute("errMsg", "ユーザー登録に失敗しました。");
-      return "/error/error";
+      return "error/error";
     }
        
     }
