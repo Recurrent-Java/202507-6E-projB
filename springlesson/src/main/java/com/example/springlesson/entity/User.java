@@ -9,6 +9,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -55,6 +57,10 @@ public class User {
   @OneToMany(mappedBy = "user")
   private List<UserAddress> addresses;
   
+  @ManyToOne
+  @JoinColumn(name = "role_id")
+  private Role role;
+
   @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
   private List<UserRole> userRoles;
   // createdAt, updatedAt はDB側で自動設定するため、アプリケーション側では設定しない
