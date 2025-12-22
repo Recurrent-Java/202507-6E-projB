@@ -8,11 +8,13 @@
   <meta name="description" content="【寿司処リカレント】お寿司の出前・デリバリー・配達の注文なら、宅配寿司の「寿司処リカレント」で。お家からネットで簡単に注文できます。">
   <!-- favicon -->
   <link rel="icon" href="/static/images/favicon.ico">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Reset CSS -->
   <link rel="stylesheet" href="/static/css/html5reset-1.6.1.css">
   <!-- Original CSS -->
   <link rel="stylesheet" href="/static/css/mypage.css">
-  <title>編集後の会員情報を登録 | マイページ | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
+  <title>編集内容の確認 | マイページ | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
 <body>
@@ -40,79 +42,90 @@
 
       <!-- メイン -->
       <main>
-        <h2 class="mn_h201">マイページ　編集後の会員情報を登録</h2>
+        <h2 class="mn_h201">マイページ　編集内容の確認</h2>
         <ol class="mn_pankuzu">
           <li><a href="/">TOPページ</a></li>
           <li><a href="/">マイページ</a></li>
           <li>会員情報を編集</li>
-          <li>編集後の会員情報を登録</li>
+          <li>編集内容の確認</li>
         </ol>
 
-        <div class="myp_formarea">
+        <div class="sig_formarea">
+
+          <!-- フロー図 -->
+          <div class="progressbar">
+            <div class="item">STEP.1<br>会員情報を編集</div>
+            <div class="item active">STEP.2<br>ご確認</div>
+            <div class="item">STEP.3<br>完了(マイページへ)</div>
+          </div>
+
           <form action="" method="post" object="">
             <!-- お名前 -->
-            <h3><label>お名前<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <p>福岡 花子</p>
+              <label>お名前<span class="form_required">必須</span></label>
+              福岡 花子
             </div>
 
             <!-- メールアドレス -->
-            <h3><label>メールアドレス<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <p>fukuoka-hanaco@gmail.co.jp</p>
+              <label>メールアドレス<span class="form_required">必須</span></label>
+              fukuoka-hanaco@gmail.co.jp
             </div>
 
             <!-- パスワード -->
-            <h3><label>パスワード<span class="form_required">必須</span></label></h3>
-            <p class="form_attention">半角英数4文字以上で入力してください。</p>
             <div class="sig_form_txt">
-              <p>******</p>
+              <label>パスワード<span class="form_required">必須</span></label>
+              ******
+              <p class="form_attention">半角英数4文字以上で入力してください。</p>
             </div>
 
             <!-- 電話番号 -->
-            <h3><label>電話番号</label></h3>
             <div class="sig_form_txt">
-              <p>090-1111-2222</p>
+              <label>電話番号</label>
+              090-1111-2222
             </div>
 
             <!-- 郵便番号 -->
-            <h3><label>郵便番号<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <p>090-1111</p>
+              <label>郵便番号<span class="form_required">必須</span></label>
+              090-1111
             </div>
 
             <!-- 都道府県 -->
-            <h3><label>都道府県<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <p>福岡県</p>
+              <label>都道府県<span class="form_required">必須</span></label>
+              福岡県
             </div>
 
             <!-- 住所１ -->
-            <h3><label>住所：市区町村、番地<span class="form_required">必須</span></label></h3>
             <div class="sig_form_txt">
-              <p>福岡市中央区〇〇〇3-51</p>
+              <label>市区町村<span class="form_required">必須</span></label>
+              福岡市中央区〇〇〇
             </div>
 
             <!-- 住所２ -->
-            <h3><label>住所：建物名、部屋番号</label></h3>
             <div class="sig_form_txt">
-              <p>ライオンズマンション540号室</p>
+              <label>番地<span class="form_required">必須</span></label>
+              3-51
+            </div>
+
+            <!-- 住所３ -->
+            <div class="sig_form_txt">
+              <label>建物名、部屋番号</label>
+              ライオンズマンション540号室
             </div>
 
             <!-- DM通知設定 -->
-            <h3>DMの受信設定<span class="form_required">必須</span></h3>
-            <p class="form_attention">ご登録のメールアドレス宛てにキャンペーンなどお得な情報をお知らせします。</p>
             <div class="sig_form_txt">
-              <p>受信する</p>
+              <label>DMの受信設定<span class="form_required">必須</span></label>
+              受信する
             </div>
 
-
-            <div class="myp_form_btn">
-              <button type="submit">編集内容を登録する</button>
+            <div class="sig_form_btn">
+              <p><button type="submit">編集内容を登録する<i class="fas fa-angle-double-right fa-position-left"></i></button></p>
             </div>
-          </form>
-
         </div>
+        </form>
 
       </main><!-- メイン END -->
     </div><!-- inner END -->

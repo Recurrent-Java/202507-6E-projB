@@ -8,6 +8,8 @@
   <meta name="description" content="【寿司処リカレント】お寿司の出前・デリバリー・配達の注文なら、宅配寿司の「寿司処リカレント」で。お家からネットで簡単に注文できます。">
   <!-- favicon -->
   <link rel="icon" href="/static/images/favicon.ico">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- Reset CSS -->
   <link rel="stylesheet" href="/static/css/html5reset-1.6.1.css">
   <!-- Original CSS -->
@@ -47,75 +49,92 @@
           <li>会員情報を編集</li>
         </ol>
 
-        <div class="myp_formarea">
+        <div class="sig_formarea">
+
+          <!-- フロー図 -->
+          <div class="progressbar">
+            <div class="item active">STEP.1<br>会員情報を編集</div>
+            <div class="item">STEP.2<br>ご確認</div>
+            <div class="item">STEP.4<br>完了(マイページへ)</div>
+          </div>
+
           <form action="" method="post" object="">
             <!-- お名前 -->
-            <h3><label>お名前<span class="form_required">必須</span></label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>お名前<span class="form_required">必須</span></label>
               <input type="text" field=""><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- メールアドレス -->
-            <h3><label>メールアドレス<span class="form_required">必須</span></label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>メールアドレス<span class="form_required">必須</span></label>
               <input type="text" field=""><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- パスワード -->
-            <h3><label>パスワード<span class="form_required">必須</span></label></h3>
-            <p class="form_attention">半角英数4文字以上で入力してください。</p>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>パスワード<span class="form_required">必須</span></label>
+
               <input type="password" name="" id=""><span class="form_error" if="" errors=""></span>
+              <p class="form_attention">半角英数4文字以上で入力してください。</p>
             </div>
 
             <!-- 電話番号 -->
-            <h3><label>電話番号</label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>電話番号</label>
               <input type="tel" name="" id="pass"><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- 郵便番号 -->
-            <h3><label>郵便番号<span class="form_required">必須</span></label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>郵便番号<span class="form_required">必須</span></label>
               <input type="tel" name="" id="pass"><span class="form_error" if="" errors=""></span>
             </div>
 
             <!-- 都道府県 -->
-            <h3><label>都道府県<span class="form_required">必須</span></label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>都道府県<span class="form_required">必須</span></label>
               <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- 住所１ -->
-            <h3><label>住所：市区町村、番地<span class="form_required">必須</span></label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>市区町村<span class="form_required">必須</span></label>
               <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- 住所２ -->
-            <h3><label>住所：建物名、部屋番号</label></h3>
-            <div class="myp_form_txt">
+            <div class="sig_form_txt">
+              <label>番地<span class="form_required">必須</span></label>
+              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
+                errors=""></span>
+              <datalist id=""></datalist>
+            </div>
+
+            <!-- 住所３ -->
+            <div class="sig_form_txt">
+              <label>建物名、部屋番号</label>
               <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
                 errors=""></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- DM通知設定 -->
-            <h3>DMの受信設定<span class="form_required">必須</span></h3>
-            <p class="form_attention">ご登録のメールアドレス宛てにキャンペーンなどお得な情報をお知らせします。</p>
-            <div class="myp_form_txt">
-              <label for="">受信する：</label><input type="radio" name="" value="" id="" checked>
-              <label for="">受信しない：</label><input type="radio" name="" value="" id="">
+            <div class="sig_form_txt sig_form_dm">
+              <label>DMの受信設定<span class="form_required">必須</span></label>
+              受信する：<input type="radio" name="" value="" id="" checked>
+              受信しない：<input type="radio" name="" value="" id="">
             </div>
 
-            <div class="myp_form_btn">
-              <button type="submit">編集確認画面へ</button>
+            <div class="sig_form_btn">
+              <button type="submit">確認画面へ<i class="fas fa-angle-double-right fa-position-left"></i></button>
             </div>
           </form>
+
 
         </div>
 
