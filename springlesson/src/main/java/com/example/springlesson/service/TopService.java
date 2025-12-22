@@ -3,10 +3,12 @@ package com.example.springlesson.service;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Service;
 
 import com.example.springlesson.entity.Voice;
 import com.example.springlesson.repository.VoiceRepository;
 
+@Service
 public class TopService {
 private final VoiceRepository voiceRepository;
 
