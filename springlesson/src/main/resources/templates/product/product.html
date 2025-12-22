@@ -2,18 +2,10 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no"><!-- モバイルデバイスで閲覧する際、電話番号を自動的に検出しないようにする -->
-  <meta name="description" content="【寿司処リカレント】お寿司の出前・デリバリー・配達の注文なら、宅配寿司の「寿司処リカレント」で。お家からネットで簡単に注文できます。">
-  <!-- favicon -->
-  <link rel="icon" href="/static/images/favicon.ico">
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Reset CSS -->
-  <link rel="stylesheet" href="/static/css/html5reset-1.6.1.css">
+  <div th:replace="~{comlayout/base :: meta}"></div>
+  <div th:replace="~{comlayout/base :: styles}"></div>
   <!-- Original CSS -->
-  <link rel="stylesheet" href="/static/css/product.css">
+  <link rel="stylesheet" th:href="@{/css/product.css">
   <title>商品一覧 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
@@ -21,37 +13,21 @@
   <div class="wrapper">
     <div class="inner" id="unique_product_area">
 
-      <!-- ヘッダー -->
-      <header>
-        <h1><a href="index.html"><img class="hd_logo" src="/static/images/hd_logo.png" alt="宅配寿司 寿司処リカレント"></a></h1>
-        <div class="hd_copy">
-          <p class="hd_copy01">今日はおうちで、ちょっと贅沢。</p>
-          <p>家族みんなで楽しめる宅配寿司。</p>
-        </div>
-      </header><!-- ヘッダー END -->
-
-      <!-- ナビゲーション -->
-      <nav>
-        <ul>
-          <li><a href="cart/cart.html" class="nav_cart">カート</a></li>
-          <li><a href="product/product.html" class="nav_product">商品一覧</a></li>
-          <li><a href="signup/checkSi.html" class="nav_login">会員登録/ログイン</a></li>
-          <li><a href="voice/voice-vi.html" class="nav_voice">お客様のご意見/ご感想</a></li>
-        </ul>
-      </nav><!-- ナビゲーション END -->
+      <div th:replace="~{comlayout/base :: header}"></div>
+      <div th:replace="~{comlayout/base :: nav}"></div>
 
       <!-- メイン -->
       <main>
         <h2 class="mn_h201">商品一覧</h2>
         <ol class="mn_pankuzu">
-          <li><a href="/">TOPページ</a></li>
+          <li><a th:href="@{/}">TOPページ</a></li>
           <li>商品一覧</li>
         </ol>
 
         <div class="pro_search_cart">
           <!-- 商品の検索エリア -->
           <div class="pro_search_wrap">
-            <h3 class="pro_h301"><img src="/static/images/pro_tit_search01.jpg" alt="商品の検索"></h3>
+            <h3 class="pro_h301"><img th:src="@{images/pro_tit_search01.jpg}" alt="商品の検索"></h3>
             <div class="pro_search_in">
               <!-- キーワード検索 -->
               <div class="pro_search01 pro_keyword">
@@ -90,7 +66,7 @@
               <!-- アレルギー情報はこちら -->
               <div class="pro_search01 pro_allergy01">
                 <h4>アレルギーについて</h4>
-                <a href=""><img src="/static/images/pro_btn_allergy01.jpg"></a>
+                <a th:href="@{/}"><img th:src="@{mages/pro_btn_allergy01.jpg}"></a>
               </div>
             </div>
           </div>
@@ -98,7 +74,7 @@
 
           <!-- カートの中身 -->
           <div class="pro_cart_wrap">
-            <h3 class="pro_h301"><img src="/static/images/pro_tit_cart01.jpg" alt="カートの中身"></h3>
+            <h3 class="pro_h301"><img th:src="@{mages/images/pro_tit_cart01.jpg}" alt="カートの中身"></h3>
             <div class="pro_cart_in">
               <h4>注文内容</h4>
               <table>
@@ -111,7 +87,7 @@
                 <td><span>￥</span>1,234<span>(税込)</span></td>
                 </tr>
               </table>
-              <p><a href=""><img src="/static/images/pro_btn_cart01.png" alt="カートへ進む"></a></p>
+              <p><a th:href="@{/cart/}"><img th:src="@{/images/pro_btn_cart01.png}" alt="カートへ進む"></a th:href="@{/cart/}></p>
             </div>
           </div>
         </div>
@@ -122,7 +98,7 @@
 
             <!-- 商品1個　-->
             <li class="product_card">
-              <div class="product_img"><img src="/static/images/pro_demoimg02.png" alt="商品名"></div>
+              <div class="product_img"><img th:src="@{/images/pro_demoimg02.png}" alt="商品名"></div>
               <p class="product_name">商品名商品名商品名</p>
               <p class="product_price">300円(税込)</p>
               <div class="product_qty">
@@ -130,12 +106,12 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a href=""><img src="/static/images/pro_btn_detail01.png"></a></div>
+              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
             </li>
 
             <!-- 商品1個　-->
             <li class="product_card">
-              <div class="product_img"><img src="/static/images/pro_demoimg02.png" alt="商品名"></div>
+              <div class="product_img"><img th:src="@{/images/pro_demoimg02.png}" alt="商品名"></div>
               <p class="product_name">商品名商品名商品名</p>
               <p class="product_price">300円(税込)</p>
               <div class="product_qty">
@@ -143,12 +119,12 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a href=""><img src="/static/images/pro_btn_detail01.png"></a></div>
+              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
             </li>
 
             <!-- 商品1個　-->
             <li class="product_card">
-              <div class="product_img"><img src="/static/images/pro_demoimg02.png" alt="商品名"></div>
+              <div class="product_img"><img th:src="@{/images/pro_demoimg02.png}" alt="商品名"></div>
               <p class="product_name">商品名商品名商品名</p>
               <p class="product_price">300円(税込)</p>
               <div class="product_qty">
@@ -156,12 +132,12 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a href=""><img src="/static/images/pro_btn_detail01.png"></a></div>
+              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
             </li>
 
             <!-- 商品1個　-->
             <li class="product_card">
-              <div class="product_img"><img src="/static/images/pro_demoimg02.png" alt="商品名"></div>
+              <div class="product_img"><img th:src="@{/images/pro_demoimg02.png}" alt="商品名"></div>
               <p class="product_name">商品名商品名商品名</p>
               <p class="product_price">300円(税込)</p>
               <div class="product_qty">
@@ -169,12 +145,12 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a href=""><img src="/static/images/pro_btn_detail01.png"></a></div>
+              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
             </li>
 
             <!-- 商品1個　-->
             <li class="product_card">
-              <div class="product_img"><img src="/static/images/pro_demoimg02.png" alt="商品名"></div>
+              <div class="product_img"><img th:src="@{/images/pro_demoimg02.png}" alt="商品名"></div>
               <p class="product_name">商品名商品名商品名</p>
               <p class="product_price">300円(税込)</p>
               <div class="product_qty">
@@ -182,12 +158,12 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a href=""><img src="/static/images/pro_btn_detail01.png"></a></div>
+              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
             </li>
 
             <!-- 商品1個　-->
             <li class="product_card">
-              <div class="product_img"><img src="/static/images/pro_demoimg02.png" alt="商品名"></div>
+              <div class="product_img"><img th:src="@{/images/pro_demoimg02.png}" alt="商品名"></div>
               <p class="product_name">商品名商品名商品名</p>
               <p class="product_price">300円(税込)</p>
               <div class="product_qty">
@@ -195,7 +171,7 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a href=""><img src="/static/images/pro_btn_detail01.png"></a></div>
+              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
             </li>
           </ul>
         </div>
@@ -206,28 +182,7 @@
       </main><!-- メイン END -->
     </div><!-- inner END -->
 
-    <!-- フッター -->
-    <footer>
-      <div class="ft_sitemap">
-        <ul class="smul01">
-          <li><a href="">初めての方へ</a></li>
-          <li><a href="cart/cart.html">カート</a></li>
-          <li><a href="product/product.html">商品一覧</a></li>
-          <li><a href="signup/checkSi.html">会員登録/ログイン</a></li>
-          <li><a href="voice/voice-vi.html">お客様のご意見/ご感想</a></li>
-        </ul>
-        <ul>
-          <li><a href="">サイトマップ</a></li>
-          <li><a href="">お問い合わせ</a></li>
-          <li><a href="">ご利用規約</a></li>
-          <li><a href="">特定商取引表示</a></li>
-        </ul>
-      </div>
-      <div class="ft_copy">
-        <small>&copy;SUSHIDOKORO RECURRENT CO.,LTD.ALL RIGHTS RESERVED.</small>
-      </div>
-    </footer>
-    <!-- フッター END -->
+    <div th:replace="~{comlayout/base :: footer}"></div>
 
 
 

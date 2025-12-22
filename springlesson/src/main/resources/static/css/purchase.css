@@ -66,7 +66,7 @@
 
 
 
-/* カートの内容
+/* 全体
 -----------------------------------------------*/
 .cart_wrap{
     background-color: #fff;
@@ -75,92 +75,91 @@
     margin-bottom: 50px;
 }
 
-.cart_wrap table{
-    table-layout: fixed;
+.purchase_in_area01 {
+    margin-bottom: 50px;
+}
+
+/* 見出し */
+.purchase_in_area01 h3{
+    padding: 1rem 2rem;
+    border-left: 5px solid #CE0000;
+    border-bottom: 1px solid #CE0000;
+    margin-bottom: 15px;
+}
+
+/* テーブル
+-----------------------------------------------*/
+.purchase_in_area01 table {
     width: 100%;
 }
 
-.cart_wrap th {
-    color: #CE0000;
-    font-weight: normal;
-    font-size: 1.8rem;
-    padding: 10px 0px;
-    border-bottom: 3px solid #CE0000;
-}
-
-.cart_wrap td {
-    font-size: 1.8rem;
-    padding :20px 10px;
+.purchase_in_area01 th {
+    width:210px;
+    color: #FFF;
+    background-color: #CE0000;
     vertical-align: middle;
-    box-sizing: border-box;
-    text-align: left;
+    padding: 20px 0px;
+    border: 1px solid #CCCCCC;
+    line-height: 2;
 }
 
-td.td_img img {
-    width: 170px;
+.purchase_in_area01 td {
+    vertical-align: middle;
+    padding: 20px 20px;
+    border: 1px solid #CCCCCC;
 }
 
-td.td_name {
-    width: 180px;
+.purchase_in_area01 td p input{
+    width: 450px;
+    padding:5px 3px;
 }
 
-td.td_price01 {
-    width: 210px;
-    text-align: right;
+.purchase_in_area01 td p label {
+    width: 100px;
+    display: inline-block;
 }
 
-.product_qty {
-    display: flex;
-    justify-content: center;
-    gap: 0px;
-    margin-bottom: 10px;
-}
 
-.qty_btn {
-    font-size: 1.8rem;
-    width: 30px;
-    height: 30px;
-    line-height: 26px;
-    background-color: #FFF;
-    border-radius: 2px;
-    border: 1px solid #CCC;
+/* ラジオボタンを非表示にして、カスタムスタイルを適用 */
+input[type="radio"] {
+    display: none;
 }
-
-.qty_num {
-    font-size: 1.8rem;
-    min-width: 30px;
+/* テーブルのラジオボタン用セルにスタイルを追加 */
+td:last-child {
     text-align: center;
-    background-color: #FFF;
-    line-height: 28px;
-    border-radius: 2px;
-    border: 1px solid #CCC;
+    vertical-align: middle;
 }
-
-td.td_delete {
-    width: 170px;
-    text-align: center;
-}
-
-tr.td_total01 td {
-    border-top:2px solid #CCC;
-    text-align: right;
-}
-
-tr.td_total01 td {
+/* カスタムラベル風のボタンを作る */
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #CE0000;;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #CE0000;;
+    cursor: pointer;
+    transition: all 0.3s ease;
     font-weight: bold;
-    font-size: 18px;
-    padding-top: 15px;
-    border-top: 2px solid #ccc;
+}
+/* 選択されたときのスタイル */
+input[type="radio"]:checked + label {
+    background-color: #CE0000;; color: #fff;
+}
+/* テーブル内のラジオボタンにラベルを適用するための調整 */
+td input[type="radio"] {
+    display: none;
+}
+td input[type="radio"] + label::before {
+    content: "●";
+    display: inline-block;
+    margin-right: 8px;
+    color: transparent;
+    transition: color 0.3s;
+}
+td input[type="radio"]:checked + label::before {
+    color: #fff;
 }
 
-.cart_wrap table tr:nth-child(2) td {
-    padding-top: 30px;
-}
-
-tr.td_total01 td:last-child {
-    text-align: right;
-    color: #CE0000;
-}
 
 
 /* ボタン
