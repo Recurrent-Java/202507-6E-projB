@@ -88,26 +88,26 @@ nav a {
 nav a:hover {background-size: 100% 100%;}
 
 /* ナビゲーションボタン */
-a.nav_cart {background-image: url(/images/nv_cart.jpg);}
-a.nav_product {background-image: url(/images/nv_product.jpg);}
-a.nav_login {background-image: url(/images/nv_login.jpg);}
-a.nav_voice {background-image: url(/images/nv_voice.jpg);}
+a.nav_cart {background-image: url(../images/nv_cart.jpg);}
+a.nav_product {background-image: url(../images/nv_product.jpg);}
+a.nav_login {background-image: url(../images/nv_login.jpg);}
+a.nav_voice {background-image: url(../images/nv_voice.jpg);}
 
 /* ナビゲーションボタン ホバー時 */
-a.nav_cart:hover {background-image: url(/images/nv_cart_on.jpg);}
-a.nav_product:hover {background-image: url(/images/nv_product_on.jpg);}
-a.nav_login:hover {background-image: url(/images/nv_login_on01.jpg);}
-a.nav_voice:hover {background-image: url(/images/nv_voice_on.jpg);}
+a.nav_cart:hover {background-image: url(../images/nv_cart_on.jpg);}
+a.nav_product:hover {background-image: url(../images/nv_product_on.jpg);}
+a.nav_login:hover {background-image: url(../images/nv_login_on01.jpg);}
+a.nav_voice:hover {background-image: url(../images/nv_voice_on.jpg);}
 
 /* ナビゲーションボタン 該当ページ時 */
-#unique_cart_area a.nav_cart {background-image: url(/images/nv_cart_on.jpg);}
-#unique_cart_area a.nav_login {background-image: url(/images/nv_login_on03.jpg);} /* ログイン時マイページ */
-#unique_mypage_area a.nav_login {background-image: url(/images/nv_login_on02.jpg);} /* マイページ */
-#unique_signup_area a.nav_login {background-image: url(/images/nv_login_on04.jpg);} /* 新規会員登録画面 */
-#unique_product_area a.nav_product {background-image: url(/images/nv_product_on.jpg);}
-#unique_login_area a.nav_login {background-image: url(/images/nv_login_on01.jpg);}
-#unique_voice_area a.nav_voice {background-image: url(/images/nv_voice_on.jpg);}
-a.nav_log_mypageoff {background-image: url(/images/nv_login_on03.jpg);}
+#unique_cart_area a.nav_cart {background-image: url(../images/nv_cart_on.jpg);}
+#unique_cart_area a.nav_login {background-image: url(../images/nv_login_on03.jpg);} /* ログイン時マイページ */
+#unique_mypage_area a.nav_login {background-image: url(../images/nv_login_on02.jpg);} /* マイページ */
+#unique_signup_area a.nav_login {background-image: url(../images/nv_login_on04.jpg);} /* 新規会員登録画面 */
+#unique_product_area a.nav_product {background-image: url(../images/nv_product_on.jpg);}
+#unique_login_area a.nav_login {background-image: url(../images/nv_login_on01.jpg);}
+#unique_voice_area a.nav_voice {background-image: url(../images/nv_voice_on.jpg);}
+a.nav_log_mypageoff {background-image: url(../images/nv_login_on03.jpg);}
 
 
 /* メインエリア
