@@ -1,6 +1,5 @@
 package com.example.springlesson.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -66,7 +65,7 @@ public class OrderService {
         order.setShippingAddressLine1(form.getAddressLine1());
         order.setShippingAddressLine2(form.getAddressLine2());
         order.setShippingPhoneNumber(form.getPhoneNumber());
-        order.setDeliveryDate(LocalDate.parse(form.getDeliveryDate()));
+        order.setDeliveryDate(form.getDeliveryDate());
         order.setDeliveryTimeSlot(form.getDeliveryTimeSlot());
 
         // orders テーブルに保存
