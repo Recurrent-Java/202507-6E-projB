@@ -37,7 +37,7 @@ public class UserDetailsImpl implements UserDetails {
   }
 @Override
  public boolean isEnabled() {
-    return user.isWithdrawFlag();
+    return !user.isWithdrawFlag();
   }
 
 

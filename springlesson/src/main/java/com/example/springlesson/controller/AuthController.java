@@ -63,8 +63,10 @@ public AuthController(AuthService authService ) {
     RegistForm form = (RegistForm) session.getAttribute("registForm");
     
     try {
+      model.addAttribute("registForm", form);
+      session.setAttribute("registForm", form);
    authService.SaveUser(form);
-      return "mypage/mypage";
+   return "redirect:/mypage";
     } catch (Exception e) {
       //例外発生時の処理
       e.printStackTrace(); 

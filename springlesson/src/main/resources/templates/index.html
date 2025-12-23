@@ -31,22 +31,10 @@
           <h2>お客様のご意見／ご感想</h2>
           <div class="idx_voice_in">
             <table>
-              <tr>
+              <tr th:each="voice : ${voiceList}">
                 <th><img th:src="@{/images/voc_dicon01.jpg}" alt="ユーザー名01"></th>
                 <td>
-                  <h3>新鮮</h3>
-                  <p>新鮮で美味しいネタがすぐに届いてうれしかった。<br>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>
-                    テキストテキスト。</p>
-                </td>
-              </tr>
-              <tr>
-                <th><img th:src="@{/images/voc_dicon01.jpg}" alt="ユーザー名01"></th>
-                <td>
-                  <h3>新鮮</h3>
-                  <p>新鮮で美味しいネタがすぐに届いてうれしかった。<br>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト<br>
-                    テキストテキスト。</p>
+          <p th:text = "${voice.comment}">コメント本文</p>
                 </td>
               </tr>
             </table>

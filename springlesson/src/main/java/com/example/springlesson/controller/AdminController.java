@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.springlesson.entity.Product;
 import com.example.springlesson.entity.User;
 import com.example.springlesson.form.AdminCustomerForm;
+import com.example.springlesson.form.AdminProductForm;
 import com.example.springlesson.service.AdminService;
 
 @Controller
@@ -89,6 +90,40 @@ public class AdminController {
       return "admin/adminProduct";
     } catch (Exception e) {
       model.addAttribute("errMsg", "商品情報の取得中にエラーが発生しました。");
+      return "error/error";
+    }
+  }
+  @PostMapping("/checkProduct")
+  public String checkProduct( @Valid @ModelAttribute("AdminProductForm") AdminProductForm form,
+      BindingResult bindingResult,
+      HttpSession session,
+      Model model) {
+    if (bindingResult.hasErrors()) {
+      //エラー時の処理
+      return "admin/adminProduct";
+    }
+    try {
+      List<Product> productList = adminService.findByIdInProducts(form.getProductIds());
+      session.setAttribute("productCheckList", productList);
+      model.addAttribute("productList", productList);
+      return "admin/adminProductCheck";
+    } catch (Exception e) {
+      model.addAttribute("errMsg", "商品情報の取得中にエラーが発生しました。");
+      return "error/error";
+    }
+  }
+  @PostMapping("/disableProduct")
+  public String disableProduct(HttpSession session, Model model) {
+    try {
+
+      List<Product> productList = (List<Product>) session.getAttribute("productCheckList");
+      for (Product product : productList) {
+        adminService.disableProduct(product.getId());
+      }
+      session.removeAttribute("productCheckList");
+      return "admin/finish";
+    } catch (Exception e) {
+      model.addAttribute("errorMessage", "商品の無効化中にエラーが発生しました。");
       return "error/error";
     }
   }
