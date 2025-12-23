@@ -24,12 +24,12 @@ public class CartController {
   public CartController(CartService cartService) {
     this.cartService = cartService;
   }
+  // カート一覧
+  @GetMapping
+  public String cart(@AuthenticationPrincipal UserDetailsImpl principal,
+      Model model) {
 
-  @GetMapping 
-public String cart(@AuthenticationPrincipal UserDetailsImpl principal,
-                     Model model) {
-
-    User user = principal.getUser(); 
+    User user = principal.getUser();
     List<CartItem> cartItems = cartService.findCartItems(user);
 
     model.addAttribute("cartItems", cartItems);
@@ -37,32 +37,32 @@ public String cart(@AuthenticationPrincipal UserDetailsImpl principal,
 
     return "cart/cart";
   }
-
+  // カート追加
   @PostMapping("/add")
   public String add(@AuthenticationPrincipal UserDetailsImpl principal,
-                    @RequestParam Long productId,
-                    @RequestParam Integer quantity) {
+      @RequestParam Long productId,
+      @RequestParam Integer quantity) {
 
     cartService.add(principal.getUser(), productId, quantity);
     return "redirect:/cart";
   }
 
+  // 数量変更
   @PostMapping("/update")
   public String update(@AuthenticationPrincipal UserDetailsImpl principal,
-                       @RequestParam Long productId,
-                       @RequestParam Integer quantity) {
+      @RequestParam Long productId,
+      @RequestParam Integer quantity) {
 
     cartService.updateQuantity(principal.getUser(), productId, quantity);
     return "redirect:/cart";
   }
-
+  // カート削除
   @PostMapping("/remove")
   public String remove(@AuthenticationPrincipal UserDetailsImpl principal,
-                       @RequestParam Long productId) {
+      @RequestParam Long productId) {
 
     cartService.remove(principal.getUser(), productId);
     return "redirect:/cart";
   }
-  
-}
 
+}
