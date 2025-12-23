@@ -1,6 +1,7 @@
 package com.example.springlesson.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -37,5 +38,5 @@ public class Role {
   private LocalDate updatedAt;
   
   @OneToMany(mappedBy = "role")
-  private List<User> users;
+  private List<UserRole> userRoles = new ArrayList<>();
 }

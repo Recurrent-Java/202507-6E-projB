@@ -39,7 +39,7 @@
             <p class="sig_login">すでに会員の方はこちらから<a href="">ログイン</a></p>
           </div>
 
-          <form th:action="@{auth/sign-up}" method="post" th:object="${registForm}">
+          <form th:action="@{/auth/sign-up}" method="post" th:object="${registForm}">
 
             <!-- お名前 -->
             <div class="sig_form_txt">
@@ -76,40 +76,36 @@
             <!-- 都道府県 -->
             <div class="sig_form_txt">
               <label>都道府県<span class="form_required">必須</span></label>
-              <input type="text" th:field="*{prefecture}" id="" list="" autocomplete="off"><span class="form_error" if=""
-                errors=""></span>
+              <input type="text" th:field="*{prefecture}" id="" list="" autocomplete="off"><span class="form_error" th:if="${#fields.hasErrors('prefecture')}" th:errors="*{prefecture}"></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- 住所１ -->
             <div class="sig_form_txt">
               <label>市区町村<span class="form_required">必須</span></label>
-              <input type="text" th:field="*{city}" id="" list="" autocomplete="off"><span class="form_error" if=""
-                errors=""></span>
+              <input type="text" th:field="*{city}" id="" list="" autocomplete="off"><span class="form_error" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
               <datalist id=""></datalist>
             </div>
             
             <!-- 住所２ -->
             <div class="sig_form_txt">
               <label>番地<span class="form_required">必須</span></label>
-              <input type="text" th:field="*{city}" id="" list="" autocomplete="off"><span class="form_error" if=""
-                errors=""></span>
+              <input type="text" th:field="*{addressLine1}" id="" list="" autocomplete="off"><span class="form_error" th:if="${#fields.hasErrors('addressLine1')}" th:errors="*{addressLine1}"></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- 住所３ -->
             <div class="sig_form_txt">
               <label>建物名、部屋番号</label>
-              <input type="text" name="" id="" list="" autocomplete="off"><span class="form_error" if=""
-                errors=""></span>
+              <input type="text" th:field="*{addressLine2}" id="" list="" autocomplete="off"><span class="form_error" th:if="${#fields.hasErrors('addressLine2')}" th:errors="*{addressLine2}"></span>
               <datalist id=""></datalist>
             </div>
 
             <!-- DM通知設定 -->
             <div class="sig_form_txt sig_form_dm">
               <label>DMの受信設定<span class="form_required">必須</span></label>
-              受信する：<input type="radio" name="" value="" id="" checked>
-              受信しない：<input type="radio" name="" value="" id="">
+              受信する：<input type="radio" th:field="*{dmOptIn}" value="1" id="" checked>
+              受信しない：<input type="radio" th:field="*{dmOptIn}"  value="0" id="">
             </div>
 
             <div class="sig_form_btn">
