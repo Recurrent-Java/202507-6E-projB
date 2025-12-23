@@ -3,7 +3,6 @@ package com.example.springlesson.controller;
 import java.security.Principal;
 import java.util.List;
 
-import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.springlesson.entity.CartItem;
 import com.example.springlesson.form.OrderForm;
+import com.example.springlesson.service.CartService;
 import com.example.springlesson.service.OrderService;
 
 @Controller
@@ -23,78 +23,47 @@ import com.example.springlesson.service.OrderService;
 public class OrderController {
 
     private final OrderService orderService;
+    private final CartService cartService;
 
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, CartService cartService) {
         this.orderService = orderService;
+        this.cartService = cartService;
     }
 
-    /**
-     * 注文入力画面表示
-     */
     @GetMapping
-    public String orderInput(HttpSession session, Model model) {
-
-        @SuppressWarnings("unchecked")
-        List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
-
-        if (cart == null || cart.isEmpty()) {
-            model.addAttribute("errMsg", "カートに商品がありません。");
-            return "error/error";
-        }
+    public String input(Model model, Principal principal) {
+        List<CartItem> cart = cartService.findCartItems(
+                cartService.findCartItems(null).get(0).getUser());
 
         model.addAttribute("cart", cart);
         model.addAttribute("orderForm", new OrderForm());
-
         return "order/order-input";
     }
 
-    /**
-     * 注文確定処理
-     */
     @PostMapping("/confirm")
-    public String confirmOrder(
-            @Valid @ModelAttribute("orderForm") OrderForm form,
-            BindingResult bindingResult,
-            HttpSession session,
+    public String confirm(
+            @Valid @ModelAttribute OrderForm form,
+            BindingResult result,
             Principal principal,
             Model model) {
 
-        @SuppressWarnings("unchecked")
-        List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
-
-        if (cart == null || cart.isEmpty()) {
-            model.addAttribute("errMsg", "カートに商品がありません。");
-            return "error/error";
-        }
-
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("cart", cart);
+        if (result.hasErrors()) {
             return "order/order-input";
         }
 
-        try {
-            orderService.createOrder(principal.getName(), cart, form);
+        orderService.createOrder(
+                principal.getName(),
+                cartService.findCartItems(
+                        cartService.findCartItems(null).get(0).getUser()),
+                form);
 
-            // 注文完了後、カートをクリア
-            session.removeAttribute("cart");
-
-            return "order/order-complete";
-
-        } catch (Exception e) {
-            model.addAttribute("errMsg", e.getMessage());
-            return "error/error";
-        }
+        return "order/order-complete";
     }
 
-    /**
-     * 注文履歴表示（会員のみ）
-     */
     @GetMapping("/history")
-    public String orderHistory(Principal principal, Model model) {
-
+    public String history(Principal principal, Model model) {
         model.addAttribute("orders",
                 orderService.findOrdersByEmail(principal.getName()));
-
         return "order/order-history";
     }
 }

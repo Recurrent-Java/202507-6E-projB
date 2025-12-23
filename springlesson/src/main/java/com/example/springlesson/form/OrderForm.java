@@ -1,5 +1,7 @@
 package com.example.springlesson.form;
 
+import java.time.LocalDate;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -29,7 +31,7 @@ public class OrderForm {
     private String phoneNumber;
 
     @NotNull
-    private String deliveryDate;
+    private LocalDate deliveryDate;
 
     @NotBlank
     private String deliveryTimeSlot;
