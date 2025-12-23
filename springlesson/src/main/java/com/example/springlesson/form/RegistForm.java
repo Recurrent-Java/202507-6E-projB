@@ -1,7 +1,6 @@
 package com.example.springlesson.form;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -24,7 +23,7 @@ public class RegistForm {
   @Size(min =4 ,max =255, message="パスワードは4文字以上255文字以内で入力してください。")
   private String password;
   // 電話番号
-  @Max(value =20, message="電話番号は20文字以内で入力してください。")
+  @Size(max =20, message="電話番号は20文字以内で入力してください。")
   private String phoneNumber;
   //郵便番号
   @NotBlank(message = "郵便番号を入力してください。")
