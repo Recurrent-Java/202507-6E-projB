@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.springlesson.entity.User;
-import com.example.springlesson.entity.UserRole;
 import com.example.springlesson.repository.UserRepository;
 
 @Service
@@ -34,8 +33,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
       }
       // 権限(とりあえずここに固定しておきます)
       Collection<GrantedAuthority> authorities = new ArrayList<>();
-      for(UserRole ur : user.getUserRoles()) {
-          authorities.add(new SimpleGrantedAuthority("ROLE_" + ur.getRole().getName()));
+      if(user.getRole() != null) {
+          authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()));
       }
       return new UserDetailsImpl(user, authorities);
     }catch(Exception e) {

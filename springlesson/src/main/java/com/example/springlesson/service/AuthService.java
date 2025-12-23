@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.springlesson.entity.Role;
 import com.example.springlesson.entity.User;
 import com.example.springlesson.entity.UserAddress;
-import com.example.springlesson.entity.UserRole;
 import com.example.springlesson.form.RegistForm;
 import com.example.springlesson.repository.RoleRepository;
 import com.example.springlesson.repository.UserAddressRepository;
@@ -50,17 +49,13 @@ public class AuthService {
     userAddress.setAddressLine1(form.getAddressLine1());
     userAddress.setAddressLine2(form.getAddressLine2());
     userAddress.setIsDefault(true);
-    //ロールを取得
-    Role userRole =roleRepository.findByName("ROLE_USER")
-        .orElseThrow(() -> new IllegalArgumentException("ROLE_USERが見つかりません。"));
-    UserRole ur = new UserRole();
-    ur.setUser(user);
-    ur.setRole(userRole);
-    user.getUserRoles().add(ur);
     
+    Role role = roleRepository.findByName("ROLE_USER");
+    user.setRole(role);
     //登録処理
     user.updateLastLogin();
-    userRepository.save(user);  
+    userRepository.save(user); 
     userAddressRepository.save(userAddress);
+    
   }
 }
