@@ -46,6 +46,11 @@ private final ProductRepository productRepository;
     public List<User> findByIdIn(List<Long> userIds) {
       return  userRepository.findByIdIn(userIds);
     }
+  
+@Transactional 
+  public List<Product> findByIdInProducts(List<Long> productIds) {
+    return  productRepository.findByIdIn(productIds);
   }
+}
 
   
