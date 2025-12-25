@@ -25,8 +25,7 @@ public class TopController {
       List<Review> voiceList = topService.getTop2Reviews();
       model.addAttribute("voiceList", voiceList);
       }catch(Exception e) {
-      model.addAttribute("errMsg", e.getMessage());
-      return "/error/error";  // error.htmlを呼び出す
+      model.addAttribute("errMsg","エラーのため表示できません");
     }
 
     return "index";  // index.htmlを呼び出す
