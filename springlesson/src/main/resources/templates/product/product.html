@@ -27,7 +27,7 @@
         <div class="pro_search_cart">
           <!-- 商品の検索エリア -->
           <div class="pro_search_wrap">
-            <h3 class="pro_h301"><img th:src="@{images/pro_tit_search01.jpg}" alt="商品の検索"></h3>
+            <h3 class="pro_h301"><img th:src="@{/images/pro_tit_search01.jpg}" alt="商品の検索"></h3>
             <div class="pro_search_in">
               <!-- キーワード検索 -->
               <div class="pro_search01 pro_keyword">
@@ -66,7 +66,7 @@
               <!-- アレルギー情報はこちら -->
               <div class="pro_search01 pro_allergy01">
                 <h4>アレルギーについて</h4>
-                <a th:href="@{/}"><img th:src="@{images/pro_btn_allergy01.jpg}"></a>
+                <a th:href="@{/}"><img th:src="@{/images/pro_btn_allergy01.jpg}"></a>
               </div>
             </div>
           </div>
@@ -74,26 +74,28 @@
 
           <!-- カートの中身 -->
           <div class="pro_cart_wrap">
-            <h3 class="pro_h301"><img th:src="@{images/pro_tit_cart01.jpg}" alt="カートの中身"></h3>
+            <h3 class="pro_h301"><img th:src="@{/images/pro_tit_cart01.jpg}" alt="カートの中身"></h3>
             <div class="pro_cart_in">
               <h4>注文内容</h4>
               <table>
-                <td>
-                <th>選択中</th>
-                <td>〇<span>点</span></td>
+                <tr>
+                  <td>
+                  <th>選択中</th>
+                  <td>〇<span>点</span></td>
                 </tr>
-                <td>
-                <th>商品の合計</th>
-                <td><span>￥</span>1,234<span>(税込)</span></td>
+                <tr>
+                  <td>
+                  <th>商品の合計</th>
+                  <td><span>￥</span>1,234<span>(税込)</span></td>
                 </tr>
               </table>
-              <p><a th:href="@{/cart/}"><img th:src="@{/images/pro_btn_cart01.png}" alt="カートへ進む"></a th:href="@{/cart/}></p>
+              <p><a th:href="@{/cart/}"><img th:src="@{/images/pro_btn_cart01.png}" alt="カートへ進む"></a></p>
             </div>
           </div>
         </div>
 
         <!-- 商品一覧エリア -->
-        <div class="pro_item_wrap">
+        <div class=" pro_item_wrap">
           <ul class="product_list">
 
             <!-- 商品1個　-->
@@ -106,7 +108,9 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
+              <div class="product_detail">
+                <a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a>
+              </div>
             </li>
 
             <!-- 商品1個　-->
@@ -119,7 +123,9 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
+              <div class="product_detail">
+                <a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a>
+              </div>
             </li>
 
             <!-- 商品1個　-->
@@ -132,7 +138,9 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
+              <div class="product_detail">
+                <a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a>
+              </div>
             </li>
 
             <!-- 商品1個　-->
@@ -145,7 +153,9 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
+              <div class="product_detail">
+                <a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a>
+              </div>
             </li>
 
             <!-- 商品1個　-->
@@ -158,7 +168,9 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
+              <div class="product_detail">
+                <a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a>
+              </div>
             </li>
 
             <!-- 商品1個　-->
@@ -171,7 +183,9 @@
                 <span class="qty_num">0</span>
                 <button class="qty_btn">＋</button>
               </div>
-              <div class="product_detail"><a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a></div>
+              <div class="product_detail">
+                <a th:href="@{/detail/}"><img th:src="@{/images/pro_btn_detail01.png}"></a>
+              </div>
             </li>
           </ul>
         </div>
