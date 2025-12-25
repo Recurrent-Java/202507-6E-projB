@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+/* ページ全体 */
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  background:#ffffff;
+  color:#111;
+}
+
+.voice-vi,
+.voice-wr{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 16px 24px;
+}
+
+/* 見出し */
+.voice-title{
+  text-align:center;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  margin: 0 0 18px;
+}
+
+/* 一覧の外枠（薄いグレーの枠） */
+.voice-box{
+  border: 1px solid #d9d9d9;
+  background:#fff;
+  padding: 0;
+}
+
+/* 1件分 */
+.voice-item{
+  display:flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-top: 1px solid #e6e6e6;
+}
+.voice-item:first-child{
+  border-top: none;
+}
+
+/* アイコン */
+.voice-avatar{
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 50%;
+  background:#cfcfcf;
+  position: relative;
+}
+.voice-avatar::before{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 16px;
+  width: 18px;
+  height: 18px;
+  background:#8a8a8a;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.voice-avatar::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 28px;
+  height: 16px;
+  background:#8a8a8a;
+  border-radius: 16px 16px 6px 6px;
+  transform: translateX(-50%);
+}
+
+/* 内容 */
+.voice-content{
+  flex: 1;
+}
+.voice-name{
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.voice-text{
+  font-size: 12.5px;
+  line-height: 1.7;
+  color:#222;
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+}
+.voice-meta{
+  text-align:right;
+  font-size: 11px;
+  color:#666;
+}
+
+/* 右下ボタン（投稿はこちら） */
+.voice-actions{
+  display:flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.btn-orange{
+  display:inline-block;
+  background:#f08a16;
+  color:#fff;
+  text-decoration:none;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor:pointer;
+}
+
+/* 投稿フォーム側 */
+.form-wrap{
+  display:flex;
+  justify-content:center;
+}
+
+.form-box{
+  width: 420px;
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.form-row{
+  margin: 10px 0;
+}
+
+.form-label{
+  display:block;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 0 0 6px;
+}
+
+.form-input,
+.form-textarea{
+  width: 100%;
+  border: 1px solid #cfcfcf;
+  height: 26px;
+  padding: 4px 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.form-textarea{
+  height: 110px;
+  resize: vertical;
+  padding: 8px;
+}
+
+/* 送信ボタン中央 */
+.form-actions{
+  display:flex;
+  justify-content:center;
+  margin-top: 14px;
+}
+
+/* バリデーションエラー */
+.field-error{
+  font-size: 12px;
+  color:#c62828;
+  margin-top: 6px;
+}
