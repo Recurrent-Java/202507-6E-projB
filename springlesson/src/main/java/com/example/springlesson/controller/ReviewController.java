@@ -24,7 +24,7 @@ public class ReviewController {
   public String list(Model model) {
     try {
       List<Review> reviewList = reviewService.getLatest5Reviews();
-      model.addAttribute("reviewList", reviewList);
+      model.addAttribute("reviews", reviewList);
       
     }catch (DataAccessException e) {
       throw new RuntimeException ("エラーのため表示できません");
