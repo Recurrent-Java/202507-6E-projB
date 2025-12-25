@@ -20,28 +20,28 @@
       <main>
         <h2 class="mn_h201">マイページ</h2>
         <ol class="mn_pankuzu">
-          <li><a th:href="/">TOPページ</a></li>
+          <li><a th:href="@{/}">TOPページ</a></li>
           <li>マイページ</li>
         </ol>
 
         <!-- ようこそエリア -->
         <div class="myp_helloarea">
           <p>ようこそ、<span>山田 太郎</span>さん</p>
-          <a th:href="/">ログアウト</a>
+          <a th:href="@{/}">ログアウト</a>
         </div>
 
         <!-- 注文履歴 -->
         <div class="myp_mnarea">
           <div class="myp_mninner">
             <div class="mpy_icon">
-              <img th:src="@{/images/myp_icon01.jpg">
+              <img th:src="@{/images/myp_icon01.jpg}">
             </div>
             <div class="myp_text">
               <h3><img th:src="@{/images/myp_tt01.jpg}" alt="注文履歴"></h3>
               <p>過去のご注文内容をご確認いただけます。</p>
             </div>
             <div class="myp_btn">
-              <a th:href="/history">注文履歴を見る</a>
+              <a th:href="@{/history}">注文履歴を見る</a>
             </div>
           </div>
         </div>
@@ -52,14 +52,14 @@
           <div class="myp_mnarea myp_half">
             <div class="myp_mninner">
               <div class="mpy_icon">
-                <img th:src="@{/images/myp_icon02.jpg">
+                <img th:src="@{/images/myp_icon02.jpg}">
               </div>
               <div class="myp_text">
-                <h3><img th:src="@{/images/myp_tt02.jpg" alt="ご意見/ご感想"></h3>
+                <h3><img th:src="@{/images/myp_tt02.jpg}" alt="ご意見/ご感想"></h3>
                 <p>お客様のお声をお聞かせください。</p>
               </div>
               <div class="myp_btn myp_btn_h">
-                <a th:href="/voice-vi">投稿する</a>
+                <a th:href="@{/voice-vi}">投稿する</a>
               </div>
             </div>
           </div>
@@ -68,25 +68,25 @@
           <div class="myp_mnarea myp_half">
             <div class="myp_mninner">
               <div class="mpy_icon">
-                <img th:src="@{/images/myp_icon03.jpg">
+                <img th:src="@{/images/myp_icon03.jpg}">
               </div>
               <div class="myp_text">
-                <h3><img th:src="@{/images/myp_tt03.jpg" alt="会員情報の編集"></h3>
+                <h3><img th:src="@{/images/myp_tt03.jpg}" alt="会員情報の編集"></h3>
                 <p>お客様の会員情報を編集できます。</p>
               </div>
               <div class="myp_btn myp_btn_h">
-                <a th:href="/editpro">編集する</a>
+                <a th:href="@{/editpro}">編集する</a>
               </div>
             </div>
           </div>
         </div>
-        <p class="myp_leave"><a th:href="/leave">退会する</a>
+        <p class="myp_leave"><a th:href="@{/leave}">退会する</a></p>
 
 
       </main><!-- メイン END -->
     </div><!-- inner END -->
 
-<div th:replace="~{comlayout/base :: footer}"></div>
+    <div th:replace="~{comlayout/base :: footer}"></div>
 
 
 
