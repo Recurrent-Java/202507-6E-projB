@@ -26,7 +26,7 @@ private final ProductRepository productRepository;
   public void disableUser(Long userId) {
   User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("ユーザーが見つかりません。ID: " + userId));
       
-  user.setWithdrawFlag(false);
+  user.setWithdrawFlag(true);
 }
   @Transactional
   public void disableProduct(Long productId) {

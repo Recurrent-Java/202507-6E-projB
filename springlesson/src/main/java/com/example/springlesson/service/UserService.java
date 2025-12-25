@@ -41,7 +41,7 @@ public class UserService {
     @Transactional
     public void withdraw(String email) {
         User user = findByEmail(email);
-        user.setWithdrawFlag(false);
+        user.setWithdrawFlag(true);
         userRepository.save(user);
     }
 }
