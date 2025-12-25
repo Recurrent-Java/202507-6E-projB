@@ -28,30 +28,29 @@ public class UserController {
     /** マイページ表示 */
     @GetMapping
     public String mypage(Principal principal, Model model) {
-        model.addAttribute("user",
-                userService.findByEmail(principal.getName()));
+        model.addAttribute("user", userService.findByEmail(principal.getName()));
         return "mypage/mypage";
     }
 
-    /** 編集画面 */
-    @GetMapping("/edit")
-    public String edit(Principal principal, Model model) {
-        model.addAttribute("user",
-                userService.findByEmail(principal.getName()));
+    /** 会員情報編集画面（editpro.html） */
+    @GetMapping("/editpro")
+    public String editPro(Principal principal, Model model) {
+        model.addAttribute("user", userService.findByEmail(principal.getName()));
         model.addAttribute("userUpdateForm", new UserUpdateForm());
-        return "mypage/edit";
+        return "mypage/editpro"; 
     }
 
     /** 更新処理 */
-    @PostMapping("/edit")
+    @PostMapping("/editpro")
     public String update(
             @Valid @ModelAttribute UserUpdateForm form,
             BindingResult result,
             Principal principal) {
 
         if (result.hasErrors()) {
-            return "mypage/edit";
+            return "mypage/editpro"; 
         }
+
         userService.updateUser(principal.getName(), form);
         return "redirect:/mypage";
     }
