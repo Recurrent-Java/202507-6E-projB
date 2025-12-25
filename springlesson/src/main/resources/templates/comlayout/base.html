@@ -44,11 +44,11 @@
         <li sec:authorize="isAnonymous()"><a th:href="@{auth/login}" class="nav_login">会員登録/ログイン</a></li>
         <!-- ▼ ログイン済みで表示 -->
         <li sec:authorize="isAuthenticated()">
-          <a th:href="@{/logout}" class="nav_log_mypageoff"
+          <a th:href="@{/mypage}" class="nav_log_mypageoff"
             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             マイページ
           </a>
-          <form id="logout-form" class="d-none" th:action="@{/logout}" method="post"></form>
+          <form id="logout-form" class="d-none" th:action="@{/mypage}" method="post"></form>
         </li>
         <li><a th:href="@{/voice-vi}" class="nav_voice">お客様のご意見/ご感想</a></li>
       </ul>
@@ -68,7 +68,7 @@
           <li sec:authorize="isAnonymous()"><a th:href="@{auth/login}">会員登録/ログイン</a></li>
           <!-- ▼ ログイン済みで表示 -->
           <li sec:authorize="isAuthenticated()">
-            <a th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a th:href="@{/mypage}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               マイページ
             </a>
             <form id="logout-form" class="d-none" th:action="@{/logout}" method="post"></form>
