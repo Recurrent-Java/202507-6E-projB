@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <div th:replace="~{comlayout/base :: meta}"></div>
+  <div th:replace="~{comlayout/base :: styles}"></div>
+  <!-- Original CSS -->
+  <link rel="stylesheet" th:href="@{/css/cart.css}">
+  <title>口コミの内容 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
+</head>
+
+<body>
+  <section class="voice-wr">
+    <h2 class="voice-title">口コミの内容</h2>
+
+    <div class="form-wrap">
+      <div class="form-box">
+        <form th:action="@{/review/new}" th:object="${reviewForm}" method="post">
+
+          <div class="form-row">
+            <label class="form-label" for="reviewerName">投稿者名</label>
+            <input id="reviewerName" class="form-input" type="text" th:field="*{reviewerName}">
+            <div class="field-error" th:if="${#fields.hasErrors('reviewerName')}" th:errors="*{reviewerName}">error</div>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="title">投稿タイトル</label>
+            <input id="title" class="form-input" type="text" th:field="*{title}">
+            <div class="field-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">error</div>
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="comment">感想・コメント</label>
+            <textarea id="comment" class="form-textarea" th:field="*{comment}"></textarea>
+            <div class="field-error" th:if="${#fields.hasErrors('comment')}" th:errors="*{comment}">error</div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-orange" type="submit">内容を送信</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

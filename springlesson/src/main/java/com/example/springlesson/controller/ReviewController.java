@@ -17,8 +17,6 @@ public class ReviewController {
   @GetMapping("/new")
   public String newReview() {
     return "review/reviewForm";
-  }
-  
-  
+  } 
 }
 
