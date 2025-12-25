@@ -12,57 +12,55 @@
 <body>
   <div class="wrapper">
     <div class="inner" id="unique_review_area">
-      
-  <section class="voice-vi">
-    <h2 class="voice-title">お客様のお声</h2>
 
-    <div class="voice-box">
-      <!-- 口コミがないとき -->
-      <div class="voice-item" th:if="${reviews == null || #lists.isEmpty(reviews)}">
-        <div class="voice-avatar"></div>
-        <div class="voice-content">
-          <div class="voice-name">お知らせ</div>
-          <div class="voice-text">まだ口コミがありません。</div>
-          <div class="voice-meta"></div>
-        </div>
-      </div>
+      <section class="voice-vi">
+        <h2 class="voice-title">お客様のお声</h2>
 
-      <!-- 口コミ一覧 -->
-      <div class="voice-item"
-           th:each="review : ${reviews}"
-           th:if="${reviews != null && !#lists.isEmpty(reviews)}">
-
-        <div class="voice-avatar"></div>
-
-        <div class="voice-content" th:if="${review.isDeleted != true}">
-          <!-- 投稿者名：Userの項目名に合わせて調整（例：name / username / login） -->
-          <div class="voice-name" th:text="${review.user != null ? review.user.name : '匿名'}">投稿者</div>
-
-          <div class="voice-text" th:text="${review.comment}">
-            新鮮で美味しい！すぐに届いて嬉しかったです
+        <div class="voice-box">
+          <!-- 口コミがないとき -->
+          <div class="voice-item" th:if="${reviews == null || #lists.isEmpty(reviews)}">
+            <div class="voice-avatar"></div>
+            <div class="voice-content">
+              <div class="voice-name">お知らせ</div>
+              <div class="voice-text">まだ口コミがありません。</div>
+              <div class="voice-meta"></div>
+            </div>
           </div>
 
-          <div class="voice-meta"
-               th:text="${review.createdAt != null ? #temporals.format(review.createdAt, 'yyyy.MM.dd') + '（' + 'ご利用' + '）' : ''}">
-            2025.12.23（おたまじん）
+          <!-- 口コミ一覧 -->
+          <div class="voice-item" th:each="review : ${reviews}" th:if="${reviews != null && !#lists.isEmpty(reviews)}">
+
+            <div class="voice-avatar"></div>
+
+            <div class="voice-content" th:if="${review.isDeleted != true}">
+              <!-- 投稿者名：Userの項目名に合わせて調整（例：name / username / login） -->
+              <div class="voice-name" th:text="${review.user != null ? review.user.name : '匿名'}">投稿者</div>
+
+              <div class="voice-text" th:text="${review.comment}">
+                新鮮で美味しい！すぐに届いて嬉しかったです
+              </div>
+
+              <div class="voice-meta"
+                th:text="${review.createdAt != null ? #temporals.format(review.createdAt, 'yyyy.MM.dd') + '（' + 'ご利用' + '）' : ''}">
+                2025.12.23（おたまじん）
+              </div>
+            </div>
+
           </div>
         </div>
 
-      </div>
-    </div>
+        <div class="voice-actions">
+          <a class="btn-orange" th:href="@{/review/new}">投稿はこちら</a>
+        </div>
+      </section>
+      </main><!-- メイン END -->
+    </div><!-- inner END -->
 
-    <div class="voice-actions">
-      <a class="btn-orange" th:href="@{/review/new}">投稿はこちら</a>
-    </div>
-  </section>
-        </main><!-- メイン END -->
-      </div><!-- inner END -->
-
-      <div th:replace="~{comlayout/base :: footer}"></div>
+    <div th:replace="~{comlayout/base :: footer}"></div>
 
 
 
-    </div><!-- wrapper END -->
-  </body>
+  </div><!-- wrapper END -->
+</body>
 
-  </html>
+</html>
