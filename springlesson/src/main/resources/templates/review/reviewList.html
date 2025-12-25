@@ -5,11 +5,14 @@
   <div th:replace="~{comlayout/base :: meta}"></div>
   <div th:replace="~{comlayout/base :: styles}"></div>
   <!-- Original CSS -->
-  <link rel="stylesheet" th:href="@{/css/review-voice.css}">
-  <title>お客様のお声 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
+  <link rel="stylesheet" th:href="@{/css/review.css}">
+  <title>お客様のご意見／ご感想 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
 <body>
+  <div class="wrapper">
+    <div class="inner" id="unique_review_area">
+      
   <section class="voice-vi">
     <h2 class="voice-title">お客様のお声</h2>
 
@@ -52,7 +55,14 @@
       <a class="btn-orange" th:href="@{/review/new}">投稿はこちら</a>
     </div>
   </section>
+        </main><!-- メイン END -->
+      </div><!-- inner END -->
 
-</body>
+      <div th:replace="~{comlayout/base :: footer}"></div>
 
-</html>
+
+
+    </div><!-- wrapper END -->
+  </body>
+
+  </html>
