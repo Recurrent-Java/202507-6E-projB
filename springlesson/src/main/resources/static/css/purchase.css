@@ -345,3 +345,34 @@ table.tbl_add td{
     border :1px solid #CCC;
     text-align: left;
 }
+
+/* 購入完了
+-----------------------------------------------*/
+.purchase_in_area03 {
+    margin-bottom: 50px;
+}
+
+.purchase_in_area03 p {
+    text-align :center;
+    font-size: 20px;
+}
+
+.btn_kakunin a {
+    width: 250px;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 70px;
+    height: 70px;
+    background-color: #CE0000;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+    margin-inline: auto;
+}
+
+.btn_kakunin a:hover {
+    opacity: 0.7;
+}

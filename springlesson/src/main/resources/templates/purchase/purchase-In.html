@@ -2,52 +2,28 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no"><!-- モバイルデバイスで閲覧する際、電話番号を自動的に検出しないようにする -->
-  <meta name="description" content="【寿司処リカレント】お寿司の出前・デリバリー・配達の注文なら、宅配寿司の「寿司処リカレント」で。お家からネットで簡単に注文できます。">
-  <!-- favicon -->
-  <link rel="icon" href="/static/images/favicon.ico">
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Reset CSS -->
-  <link rel="stylesheet" href="/static/css/html5reset-1.6.1.css">
-  <link rel="stylesheet" href="/static/css/base.css">
+  <div th:replace="~{comlayout/base :: meta}"></div>
+  <div th:replace="~{comlayout/base :: styles}"></div>
   <!-- Original CSS -->
-  <link rel="stylesheet" href="/static/css/purchase.css">
-  <title>お届け先を設定 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
+  <link rel="stylesheet" th:href="@{/css/purchase.css}">
+  <title>最終確認 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
 </head>
 
 <body>
   <div class="wrapper">
     <div class="inner" id="unique_cart_area">
 
-      <!-- ヘッダー -->
-      <header>
-        <h1><a href="index.html"><img class="hd_logo" src="/static/images/hd_logo.png" alt="宅配寿司 寿司処リカレント"></a></h1>
-        <div class="hd_copy">
-          <p class="hd_copy01">今日はおうちで、ちょっと贅沢。</p>
-          <p>家族みんなで楽しめる宅配寿司。</p>
-        </div>
-      </header><!-- ヘッダー END -->
+      <div th:replace="~{comlayout/base :: header}"></div>
+      <div th:replace="~{comlayout/base :: nav}"></div>
 
-      <!-- ナビゲーション -->
-      <nav>
-        <ul>
-          <li><a href="cart/cart.html" class="nav_cart">カート</a></li>
-          <li><a href="product/product.html" class="nav_product">商品一覧</a></li>
-          <li><a href="signup/checkSi.html" class="nav_login">会員登録/ログイン</a></li>
-          <li><a href="voice/voice-vi.html" class="nav_voice">お客様のご意見/ご感想</a></li>
-        </ul>
-      </nav><!-- ナビゲーション END -->
 
       <!-- メイン -->
       <main>
         <h2 class="mn_h201">カート 最終確認</h2>
         <ol class="mn_pankuzu">
-          <li><a href="/">TOPページ</a></li>
-          <li><a href="/">カート</a></li>
-          <li><a href="/">お届け先を設定</a></li>
+          <li><a th:href="@{/}">TOPページ</a></li>
+          <li><a th:href="@{/cart}">カート</a></li>
+          <li><a th:href="@{/}">お届け先を設定</a></li>
           <li>最終確認</li>
         </ol>
 
@@ -58,7 +34,7 @@
             <div class="item">STEP.1<br>購入商品の確認</div>
             <div class="item">STEP.2<br>お届け先を設定</div>
             <div class="item active">STEP.3<br>最終確認</div>
-            <div class="item">STEP.3<br>購入完了</div>
+            <div class="item">STEP.4<br>購入完了</div>
           </div>
 
           <div class="purchase_in_area02">
@@ -72,7 +48,7 @@
                 <th>削除</th>
               </tr>
               <tr>
-                <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
                 <td class="td_name">商品名商品名商品名</td>
                 <td class="td_price01">200円</td>
                 <td class="td_count">
@@ -86,7 +62,7 @@
                 <td class="td_delete"><button>削除</button></td>
               </tr>
               <tr>
-                <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
                 <td class="td_name">商品名商品名商品名</td>
                 <td class="td_price01">200円</td>
                 <td class="td_count">
@@ -100,7 +76,7 @@
                 <td class="td_delete"><button>削除</button></td>
               </tr>
               <tr>
-                <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
                 <td class="td_name">商品名商品名商品名</td>
                 <td class="td_price01">200円</td>
                 <td class="td_count">
@@ -114,7 +90,7 @@
                 <td class="td_delete"><button>削除</button></td>
               </tr>
               <tr>
-                <td class="td_img"><img src="/static/images/pro_demoimg01.png" alt="商品名"></td>
+                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
                 <td class="td_name">商品名商品名商品名</td>
                 <td class="td_price01">200円</td>
                 <td class="td_count">
@@ -155,10 +131,10 @@
 
         <div class="cart_btnarea">
           <div class="btn_product">
-            <a href=""><i class="fas fa-angle-double-left fa-position-right"></i>お届け先修正</a>
+            <a th:href="@{/}"><i class="fas fa-angle-double-left fa-position-right"></i>お届け先修正</a>
           </div>
           <div class="btn_purchase">
-            <a href="">購入完了<i class="fas fa-angle-double-right fa-position-left"></i></a>
+            <a th:href="@{/}">購入完了<i class="fas fa-angle-double-right fa-position-left"></i></a>
           </div>
         </div>
 
@@ -167,28 +143,7 @@
       </main><!-- メイン END -->
     </div><!-- inner END -->
 
-    <!-- フッター -->
-    <footer>
-      <div class="ft_sitemap">
-        <ul class="smul01">
-          <li><a href="">初めての方へ</a></li>
-          <li><a href="cart/cart.html">カート</a></li>
-          <li><a href="product/product.html">商品一覧</a></li>
-          <li><a href="signup/checkSi.html">会員登録/ログイン</a></li>
-          <li><a href="voice/voice-vi.html">お客様のご意見/ご感想</a></li>
-        </ul>
-        <ul>
-          <li><a href="">サイトマップ</a></li>
-          <li><a href="">お問い合わせ</a></li>
-          <li><a href="">ご利用規約</a></li>
-          <li><a href="">特定商取引表示</a></li>
-        </ul>
-      </div>
-      <div class="ft_copy">
-        <small>&copy;SUSHIDOKORO RECURRENT CO.,LTD.ALL RIGHTS RESERVED.</small>
-      </div>
-    </footer>
-    <!-- フッター END -->
+    <div th:replace="~{comlayout/base :: footer}"></div>
 
 
 
