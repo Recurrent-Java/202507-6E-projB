@@ -12,9 +12,20 @@
 <body>
   <div class="wrapper">
     <div class="inner" id="unique_review_area">
+      
+      <div th:replace="~{comlayout/base :: header}"></div>
+      <div th:replace="~{comlayout/base :: nav}"></div>
+      
+      <!-- メイン -->
+      <main>
+        <h2 class="mn_h201">お客様のご意見／ご感想</h2>
+        <ol class="mn_pankuzu">
+          <li><a th:href="@{/}">TOPページ</a></li>
+          <li>お客様のご意見／ご感想</li>
+        </ol>
 
       <section class="voice-vi">
-        <h2 class="voice-title">お客様のお声</h2>
+        <h2 class="voice-title">お客様のご意見／ご感想</h2>
 
         <div class="voice-box">
           <!-- 口コミがないとき -->
