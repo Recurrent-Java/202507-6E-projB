@@ -1,13 +1,11 @@
-@charset "UTF-8";
+/* 共通CSSをインポート
+-----------------------------------------------*/
+@import url("/static/css/base.css"); /* base.css を読み込む */
 
-/* ページ全体 */
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
-  background:#ffffff;
-  color:#111;
-}
 
+
+/* お客様の声一覧
+-----------------------------------------------*/
 .voice-vi,
 .voice-wr{
   max-width: 720px;
