@@ -43,6 +43,8 @@
 
 .sig_form_btn button{
   width: 260px;
+  height: 60px;
+  line-height: 30px;
   font-size: 18px;
   display: inpine-block;
   text-decoration: none;
@@ -50,15 +52,17 @@
   border-radius: 8px;
   box-sizing: border-box;
   text-align: center;
-  padding:15px 30px;
+  padding:0px 30px;
   background-color: #E8A509;
-  border: 1cap solid #E8A509;
+  border: 1px solid #E8A509;
   color: white;
   position: relative;
 }
 
 .sig_form_btn a{
   width: 260px;
+  height: 60px;
+  line-height: 60px;
   font-size: 18px;
   display: inline-block;
   text-decoration: none;
@@ -66,7 +70,7 @@
   border-radius: 8px;
   box-sizing: border-box;
   text-align: center;
-  padding:15px 30px;
+  padding:0px 30px;
   background-color: #fff;
   border: 2px solid #E8A509;
   color: #E8A509;

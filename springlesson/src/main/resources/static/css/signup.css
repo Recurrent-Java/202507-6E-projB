@@ -134,6 +134,7 @@ p.form_attention {
 
 .sig_form_btn button{
   width: 260px;
+  height: 60px;
   font-size: 18px;
   display: inline-block;
   text-decoration: none;
@@ -148,7 +149,8 @@ p.form_attention {
   position: relative;
 }
 
-.sig_form_btn button:hover {
+.sig_form_btn button:hover,
+.sig_form_btn button:a {
     opacity: 0.7;
 }
 
@@ -163,10 +165,22 @@ p.form_attention {
   margin: 0; /* pのデフォルト余白を消す */
 }
 
-
-p.btn_left button{
+p.btn_left a{
+  width: 260px;
+  height: 62px;
+  line-height: 30px;
+  font-size: 18px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-align: center;
+  padding:15px 30px;
   background-color: white;
+  border: 2px solid #E8A509;
   color: #E8A509;
+  position: relative;
 }
 
 .fa-position-right {
