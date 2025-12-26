@@ -16,15 +16,23 @@ public class CartService {
 
     private final CartItemRepository cartItemRepository;
     private final ProductService productService;
+    private final UserService userService; // ← UserService を追加
 
-    public CartService(CartItemRepository cartItemRepository,ProductService productService) {
+    public CartService(CartItemRepository cartItemRepository, ProductService productService, UserService userService) {
         this.cartItemRepository = cartItemRepository;
         this.productService = productService;
+        this.userService = userService;
     }
 
-    // カート一覧取得
+    // カート一覧取得（既存）
     public List<CartItem> findCartItems(User user) {
         return cartItemRepository.findByUser(user);
+    }
+
+    // カート一覧取得（メールから取得する新メソッド）
+    public List<CartItem> getCartItemsByUserEmail(String email) {
+        User user = userService.findByEmail(email); // UserServiceでメールからUser取得
+        return findCartItems(user); // 既存メソッドを再利用
     }
 
     // カート追加
@@ -33,7 +41,7 @@ public class CartService {
 
         Product product = productService.findById(productId);
 
-        CartItem item =cartItemRepository.findByUserAndProduct(user, product).orElse(null);
+        CartItem item = cartItemRepository.findByUserAndProduct(user, product).orElse(null);
 
         if (item != null) {
             item.setQuantity(item.getQuantity() + quantity);
@@ -52,12 +60,12 @@ public class CartService {
         Product product = productService.findById(productId);
 
         cartItemRepository.findByUserAndProduct(user, product).ifPresent(item -> {
-                if (quantity <= 0) {
-                    cartItemRepository.delete(item);
-                } else {
-                    item.setQuantity(quantity);
-                }
-            });
+            if (quantity <= 0) {
+                cartItemRepository.delete(item);
+            } else {
+                item.setQuantity(quantity);
+            }
+        });
     }
 
     // 削除
