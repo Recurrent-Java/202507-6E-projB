@@ -21,11 +21,14 @@
 	    </tr>
 	    <tr>
 	        <td colspan="3">合計</td>
-	        <td th:text="${#numbers.formatInteger(totalPrice)}">合計金額</td>
-	    </tr>
-	</table>
+			<!-- 元の行 -->
+			<!-- <span th:text="${#numbers.formatInteger(totalPrice)}"></span> -->
 
+			<!-- 無視して空で表示 -->
+			<span th:text="${totalPrice}">0</span> </tr>
 
-    <h2>合計金額: <span th:text="${#numbers.formatInteger(totalPrice)}">0</span> 円</h2>
+			<!-- 元の行 -->
+    <!-- <h2>合計金額: <span th:text="${#numbers.formatInteger(totalPrice)}">0</span> 円</h2>-->
+	<h2>合計金額: 0円</h2>
 </body>
 </html>
