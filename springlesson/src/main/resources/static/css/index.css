@@ -82,7 +82,7 @@
 .idx_voice_in td {
   font-size: 2rem;  /* 20px */
   padding :20px 0px;
-  vertical-align: top;
+  vertical-align: middle;
   line-height: 1.8em;
 }
 

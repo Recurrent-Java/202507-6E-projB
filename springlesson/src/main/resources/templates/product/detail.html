@@ -18,30 +18,25 @@
 
       <!-- メイン -->
       <main>
-        <h2 class="mn_h201">商品一覧</h2>
+        <h2 class="mn_h201">商品詳細</h2>
         <ol class="mn_pankuzu">
           <li><a th:href="@{/}">TOPページ</a></li>
-          <li><a th:href="@{/product/}"></a>商品一覧</a></li>
+          <li><a th:href="@{/product/}">商品一覧</a></li>
           <li>商品詳細</li>
         </ol>
 
         <div class="pro_dt_area">
-          <h3>商品名商品名商品名</h3>
-          <p><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></p>
-          <p class="dt_txt">商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。商品説明が入ります。</p>
+          <h3>サーモン</h3>
+          <p><img th:src="@{/images/product/salmon.png}" alt="サーモン"></p>
+          <p class="dt_txt">脂ののった人気のサーモン。</p>
           <p class="dt_price">300円(税込)</p>
           <p class="dt_btn"><a th:href="@{/product/}"><img th:src="@{/images/pro_btn_detail02.png}" alt="商品一覧へ戻る"></a></p>
         </div>
-
-
-
 
       </main><!-- メイン END -->
     </div><!-- inner END -->
 
       <div th:replace="~{comlayout/base :: footer}"></div>
-
-
 
   </div><!-- wrapper END -->
 </body>
