@@ -1,153 +1,31 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <div th:replace="~{comlayout/base :: meta}"></div>
-  <div th:replace="~{comlayout/base :: styles}"></div>
-  <!-- Original CSS -->
-  <link rel="stylesheet" th:href="@{/css/purchase.css}">
-  <title>最終確認 | 宅配寿司 寿司処リカレント | お寿司の出前・デリバリー・配達注文</title>
+    <meta charset="UTF-8">
+    <title>購入ページ</title>
 </head>
-
 <body>
-  <div class="wrapper">
-    <div class="inner" id="unique_cart_area">
-
-      <div th:replace="~{comlayout/base :: header}"></div>
-      <div th:replace="~{comlayout/base :: nav}"></div>
-
-
-      <!-- メイン -->
-      <main>
-        <h2 class="mn_h201">カート 最終確認</h2>
-        <ol class="mn_pankuzu">
-          <li><a th:href="@{/}">TOPページ</a></li>
-          <li><a th:href="@{/cart}">カート</a></li>
-          <li><a th:href="@{/}">お届け先を設定</a></li>
-          <li>最終確認</li>
-        </ol>
-
-        <div class="cart_wrap">
-
-          <!-- フロー図 -->
-          <div class="progressbar">
-            <div class="item">STEP.1<br>購入商品の確認</div>
-            <div class="item">STEP.2<br>お届け先を設定</div>
-            <div class="item active">STEP.3<br>最終確認</div>
-            <div class="item">STEP.4<br>購入完了</div>
-          </div>
-
-          <div class="purchase_in_area02">
-            <h3>カートの中身</h3>
-            <table class="tbl_cart">
-              <tr>
-                <th colspan="2">商品名</th>
-                <th>単価(税込)</th>
-                <th>数量</th>
-                <th>小計</th>
-                <th>削除</th>
-              </tr>
-              <tr>
-                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
-                <td class="td_name">商品名商品名商品名</td>
-                <td class="td_price01">200円</td>
-                <td class="td_count">
-                  <div class="product_qty">
-                    <button class="qty_btn">ー</button>
-                    <span class="qty_num">3</span>
-                    <button class="qty_btn">＋</button>
-                  </div>
-                </td>
-                <td class="td_price01">600円</td>
-                <td class="td_delete"><button>削除</button></td>
-              </tr>
-              <tr>
-                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
-                <td class="td_name">商品名商品名商品名</td>
-                <td class="td_price01">200円</td>
-                <td class="td_count">
-                  <div class="product_qty">
-                    <button class="qty_btn">ー</button>
-                    <span class="qty_num">3</span>
-                    <button class="qty_btn">＋</button>
-                  </div>
-                </td>
-                <td class="td_price01">600円</td>
-                <td class="td_delete"><button>削除</button></td>
-              </tr>
-              <tr>
-                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
-                <td class="td_name">商品名商品名商品名</td>
-                <td class="td_price01">200円</td>
-                <td class="td_count">
-                  <div class="product_qty">
-                    <button class="qty_btn">ー</button>
-                    <span class="qty_num">3</span>
-                    <button class="qty_btn">＋</button>
-                  </div>
-                </td>
-                <td class="td_price01">600円</td>
-                <td class="td_delete"><button>削除</button></td>
-              </tr>
-              <tr>
-                <td class="td_img"><img th:src="@{/images/pro_demoimg01.png}" alt="商品名"></td>
-                <td class="td_name">商品名商品名商品名</td>
-                <td class="td_price01">200円</td>
-                <td class="td_count">
-                  <div class="product_qty">
-                    <button class="qty_btn">ー</button>
-                    <span class="qty_num">3</span>
-                    <button class="qty_btn">＋</button>
-                  </div>
-                </td>
-                <td class="td_price01">600円</td>
-                <td class="td_delete"><button>削除</button></td>
-              </tr>
-              <tr class="td_total01">
-                <td colspan="5">商品合計(税込)</td>
-                <td>2,500円</td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="purchase_in_area02">
-            <h3>お届け先の住所</h3>
-            <table class="tbl_add">
-              <tr>
-                <th>名前</th>
-                <td>福岡 太郎</td>
-              </tr>
-              <tr>
-                <th>住所</th>
-                <td>〒810-0072<br>福岡県福岡市中央区長浜一丁目4番13号 SF福岡ビル6階</td>
-              </tr>
-              <tr>
-                <th>電話番号</th>
-                <td>092-401-1835</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="cart_btnarea">
-          <div class="btn_product">
-            <a th:href="@{/}"><i class="fas fa-angle-double-left fa-position-right"></i>お届け先修正</a>
-          </div>
-          <div class="btn_purchase">
-            <a th:href="@{/}">購入完了<i class="fas fa-angle-double-right fa-position-left"></i></a>
-          </div>
-        </div>
+    <h1>カート内商品</h1>
+	<table>
+	    <tr>
+	        <th>商品名</th>
+	        <th>単価</th>
+	        <th>数量</th>
+	        <th>小計</th>
+	    </tr>
+	    <tr th:each="item : ${cartItems}">
+	        <td th:text="${item.product.name}">商品名</td>
+	        <td th:text="${#numbers.formatInteger(item.unitPrice)}">単価</td>
+	        <td th:text="${item.quantity}">数量</td>
+	        <td th:text="${#numbers.formatInteger(item.unitPrice * item.quantity)}">小計</td>
+	    </tr>
+	    <tr>
+	        <td colspan="3">合計</td>
+	        <td th:text="${#numbers.formatInteger(totalPrice)}">合計金額</td>
+	    </tr>
+	</table>
 
 
-
-      </main><!-- メイン END -->
-    </div><!-- inner END -->
-
-    <div th:replace="~{comlayout/base :: footer}"></div>
-
-
-
-  </div><!-- wrapper END -->
+    <h2>合計金額: <span th:text="${#numbers.formatInteger(totalPrice)}">0</span> 円</h2>
 </body>
-
 </html>
