@@ -16,7 +16,7 @@ public class CartService {
 
     private final CartItemRepository cartItemRepository;
     private final ProductService productService;
-    private final UserService userService; // ← UserService を追加
+    private final UserService userService;
 
     public CartService(CartItemRepository cartItemRepository, ProductService productService, UserService userService) {
         this.cartItemRepository = cartItemRepository;
@@ -24,18 +24,18 @@ public class CartService {
         this.userService = userService;
     }
 
-    // カート一覧取得（既存）
+    // ユーザーごとのカートアイテム一覧
     public List<CartItem> findCartItems(User user) {
         return cartItemRepository.findByUser(user);
     }
 
-    // カート一覧取得（メールから取得する新メソッド）
+    // メールからユーザーを取得してカートアイテム一覧
     public List<CartItem> getCartItemsByUserEmail(String email) {
-        User user = userService.findByEmail(email); // UserServiceでメールからUser取得
-        return findCartItems(user); // 既存メソッドを再利用
+        User user = userService.findByEmail(email);
+        return findCartItems(user);
     }
 
-    // カート追加
+    // カートに追加
     public void add(User user, Long productId, Integer quantity) {
         if (quantity == null || quantity <= 0) return;
 
@@ -55,7 +55,7 @@ public class CartService {
         }
     }
 
-    // 数量変更
+    // カート数量更新
     public void updateQuantity(User user, Long productId, Integer quantity) {
         Product product = productService.findById(productId);
 
@@ -68,14 +68,14 @@ public class CartService {
         });
     }
 
-    // 削除
+    // カートアイテム削除
     public void remove(User user, Long productId) {
         Product product = productService.findById(productId);
 
         cartItemRepository.findByUserAndProduct(user, product).ifPresent(cartItemRepository::delete);
     }
 
-    // 合計金額
+    // 合計金額計算
     public int calcTotal(List<CartItem> items) {
         return items.stream().mapToInt(i -> i.getUnitPrice() * i.getQuantity()).sum();
     }

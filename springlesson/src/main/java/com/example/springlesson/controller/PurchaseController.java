@@ -1,49 +1,43 @@
 package com.example.springlesson.controller;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.springlesson.entity.CartItem;
+import com.example.springlesson.entity.User;
 import com.example.springlesson.service.CartService;
+import com.example.springlesson.service.UserService;
 
 @Controller
-@RequestMapping("/purchase")
 public class PurchaseController {
 
     private final CartService cartService;
+    private final UserService userService;
 
-    public PurchaseController(CartService cartService) {
+    public PurchaseController(CartService cartService, UserService userService) {
         this.cartService = cartService;
+        this.userService = userService;
     }
 
-    /** お届け先設定画面 */
-    @GetMapping("/purchase-in")
-    public String purchaseIn(Principal principal, Model model) {
-        if (principal == null) {
-            // ログインしていなければログイン画面にリダイレクト
-            return "redirect:/auth/login";
-        }
+    // ユーザーのカート一覧を表示
+    @GetMapping("/purchase/cart")
+    public String viewCart(@RequestParam String email, Model model) {
+        // メールから User を取得
+        User user = userService.findByEmail(email);
 
-        String email = principal.getName();
+        // User を元に CartItem を取得
+        List<CartItem> cartItems = cartService.findCartItems(user);
 
-        // カート情報を取得
-        List<CartItem> cartItems = cartService.getCartItemsByUserEmail(email);
-        int totalQuantity = cartItems.stream().mapToInt(CartItem::getQuantity).sum();
-        int totalPrice = cartItems.stream().mapToInt(item -> item.getQuantity() * item.getUnitPrice()).sum();
+        // 合計金額も計算してモデルに追加
+        int total = cartService.calcTotal(cartItems);
 
         model.addAttribute("cartItems", cartItems);
-        model.addAttribute("totalQuantity", totalQuantity);
-        model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute("total", total);
 
-        // 必要ならユーザー情報も追加
-        model.addAttribute("userEmail", email);
-
-        return "purchase/purchase-in"; // purchase/purchase-in.html に遷移
+        return "cart/view"; // 表示用テンプレート名
     }
-
 }
