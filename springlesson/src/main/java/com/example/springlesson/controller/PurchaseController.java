@@ -1,37 +1,43 @@
 package com.example.springlesson.controller;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.springlesson.entity.CartItem;
-import com.example.springlesson.repository.CartItemRepository;
+import com.example.springlesson.entity.User;
+import com.example.springlesson.service.CartService;
+import com.example.springlesson.service.UserService;
 
 @Controller
 public class PurchaseController {
 
-    private final CartItemRepository cartItemRepository;
+    private final CartService cartService;
+    private final UserService userService;
 
-    public PurchaseController(CartItemRepository cartItemRepository) {
-        this.cartItemRepository = cartItemRepository;
+    public PurchaseController(CartService cartService, UserService userService) {
+        this.cartService = cartService;
+        this.userService = userService;
     }
 
-    @GetMapping("/purchase")
-    public String showPurchasePage(Model model, Principal principal) {
-        // ユーザーに紐づくカートアイテムを取得
-        List<CartItem> cartItems = cartItemRepository.findByUserUsername(principal.getName());
+    // ユーザーのカート一覧を表示
+    @GetMapping("/purchase/cart")
+    public String viewCart(@RequestParam String email, Model model) {
+        // メールから User を取得
+        User user = userService.findByEmail(email);
 
-        // 合計金額を計算
-        int totalPrice = cartItems.stream()
-                .mapToInt(item -> item.getUnitPrice() * item.getQuantity())
-                .sum();
+        // User を元に CartItem を取得
+        List<CartItem> cartItems = cartService.findCartItems(user);
+
+        // 合計金額も計算してモデルに追加
+        int total = cartService.calcTotal(cartItems);
 
         model.addAttribute("cartItems", cartItems);
-        model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute("total", total);
 
-        return "purchase/purchase-in";
+        return "cart/view"; // 表示用テンプレート名
     }
 }

@@ -13,12 +13,9 @@ import com.example.springlesson.entity.User;
 @Repository
 public interface CartItemRepository extends JpaRepository<CartItem, Long> {
 
-    // ユーザーのカートアイテム一覧
+    // ユーザーごとのカートアイテム一覧を取得
     List<CartItem> findByUser(User user);
 
-    // ユーザーと商品に紐づくカートアイテム
+    // ユーザー＋商品でカートアイテムを取得
     Optional<CartItem> findByUserAndProduct(User user, Product product);
-
-    // もしメールでユーザー検索もしたい場合
-    List<CartItem> findByUserUsername(String username);
 }
