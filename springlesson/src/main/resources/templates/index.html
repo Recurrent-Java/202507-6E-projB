@@ -34,7 +34,7 @@
               <tr th:each="voice : ${voiceList}">
                 <th><img th:src="@{/images/voc_dicon01.jpg}" alt="ユーザー名01"></th>
                 <td>
-          <p th:text = "${voice.comment}">コメント本文</p>
+                  <p th:text="${voice.comment}">コメント本文</p>
                 </td>
               </tr>
             </table>

@@ -164,7 +164,7 @@ h3.pro_h301 {
 .pro_category02::after {
     position: absolute;
     top: 50%;
-    right: 22px;
+    right: 13px;
     transform: translate(-50%, -50%) rotate(45deg);
     width: 6px;
     height: 6px;
@@ -256,6 +256,10 @@ h3.pro_h301 {
 
 .product_img {
     margin-bottom: 10px;
+}
+
+.product_img img{
+    width: 380px;
 }
 
 .product_name {
