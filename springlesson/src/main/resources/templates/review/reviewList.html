@@ -25,7 +25,6 @@
         </ol>
 
       <section class="voice-vi">
-        <h2 class="voice-title">お客様のご意見／ご感想</h2>
 
         <div class="voice-box">
           <!-- 口コミがないとき -->
@@ -61,7 +60,18 @@
         </div>
 
         <div class="voice-actions">
-          <a class="btn-orange" th:href="@{/review/new}">投稿はこちら</a>
+          <a sec:authorize="isAuthenticated()"
+             th:href="@{/review/new}"
+             class="btn-orange">
+            投稿はこちら
+          </a>
+
+          <a sec:authorize="!isAuthenticated()"
+             th:href="@{/auth/login}"
+             class="btn-orange">
+            ログインして投稿
+          </a>
+          
         </div>
       </section>
       </main><!-- メイン END -->

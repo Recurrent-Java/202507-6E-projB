@@ -8,7 +8,7 @@
 -----------------------------------------------*/
 .voice-vi,
 .voice-wr{
-  max-width: 720px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 16px 24px;
 }
@@ -27,48 +27,33 @@
   border: 1px solid #d9d9d9;
   background:#fff;
   padding: 0;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 /* 1件分 */
 .voice-item{
   display:flex;
-  gap: 12px;
-  padding: 14px 16px;
-  border-top: 1px solid #e6e6e6;
+  gap: 16px;                 /* 少し広げる */
+  padding: 18px 16px;        /* 縦余白を増やす */
+  border-top: 1px dashed #cfcfcf;
+  align-items: center;   /* ← これを追加 */
 }
+
 .voice-item:first-child{
   border-top: none;
 }
 
 /* アイコン */
 .voice-avatar{
-  flex: 0 0 52px;
-  height: 52px;
-  border-radius: 50%;
-  background:#cfcfcf;
-  position: relative;
+  flex: 0 0 116px;
+  height: 116px;
+  background: #fff url("../images/voc_dicon01.jpg") no-repeat center;
+  background-size: 116px 116px;
 }
-.voice-avatar::before{
-  content:"";
-  position:absolute;
-  left: 50%;
-  top: 16px;
-  width: 18px;
-  height: 18px;
-  background:#8a8a8a;
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
+.voice-avatar::before,
 .voice-avatar::after{
-  content:"";
-  position:absolute;
-  left: 50%;
-  bottom: 10px;
-  width: 28px;
-  height: 16px;
-  background:#8a8a8a;
-  border-radius: 16px 16px 6px 6px;
-  transform: translateX(-50%);
+  content:none;   /* 人型を消す */
 }
 
 /* 内容 */
@@ -76,12 +61,12 @@
   flex: 1;
 }
 .voice-name{
-  font-weight: 800;
-  font-size: 13px;
-  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 .voice-text{
-  font-size: 12.5px;
+  font-size: 20px;
   line-height: 1.7;
   color:#222;
   margin-bottom: 4px;
@@ -101,16 +86,25 @@
 }
 .btn-orange{
   display:inline-block;
-  background:#f08a16;
+  background:#E8A509;
   color:#fff;
   text-decoration:none;
   border: none;
-  padding: 10px 16px;
-  border-radius: 4px;
+  padding: 20px 40px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 20px;
   cursor:pointer;
 }
+
+
+.sig_form_btn button:hover,
+.sig_form_btn a:hover {
+    opacity: 0.7;
+}
+
+
+
 
 /* 投稿フォーム側 */
 .form-wrap{
@@ -164,3 +158,5 @@
   color:#c62828;
   margin-top: 6px;
 }
+
+

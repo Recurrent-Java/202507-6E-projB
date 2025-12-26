@@ -47,7 +47,7 @@ public class WebSecurityConfig {
             .requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**").permitAll() // すべてのユーザーにアクセスを許可するURL
             .requestMatchers("/", "/login","/login/**", "/auth/**").permitAll()
             .requestMatchers("/product/**").permitAll()
-            .requestMatchers("/review").permitAll()
+            .requestMatchers("/review/**").permitAll()
             .requestMatchers("/purchase/**").permitAll()
             .anyRequest().authenticated() // 上記以外のURLはログインが必要（会員または管理者のどちらでもOK）
         )
@@ -56,7 +56,7 @@ public class WebSecurityConfig {
             .loginProcessingUrl("/auth/login") // ログインフォームの送信先URL
             .usernameParameter("email")  // ★これが重要！
             .passwordParameter("password")
-            .defaultSuccessUrl("/mypage", true) // ログイン成功時のリダイレクト先URL
+            .defaultSuccessUrl("/product", true) // ログイン成功時のリダイレクト先URL
             .failureUrl("/auth/login?error") // ログイン失敗時のリダイレクト先URL
             .permitAll())
         .logout((logout) -> logout

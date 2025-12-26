@@ -16,24 +16,32 @@ public class CartService {
 
     private final CartItemRepository cartItemRepository;
     private final ProductService productService;
+    private final UserService userService;
 
-    public CartService(CartItemRepository cartItemRepository,ProductService productService) {
+    public CartService(CartItemRepository cartItemRepository, ProductService productService, UserService userService) {
         this.cartItemRepository = cartItemRepository;
         this.productService = productService;
+        this.userService = userService;
     }
 
-    // カート一覧取得
+    // ユーザーごとのカートアイテム一覧
     public List<CartItem> findCartItems(User user) {
         return cartItemRepository.findByUser(user);
     }
 
-    // カート追加
+    // メールからユーザーを取得してカートアイテム一覧
+    public List<CartItem> getCartItemsByUserEmail(String email) {
+        User user = userService.findByEmail(email);
+        return findCartItems(user);
+    }
+
+    // カートに追加
     public void add(User user, Long productId, Integer quantity) {
         if (quantity == null || quantity <= 0) return;
 
         Product product = productService.findById(productId);
 
-        CartItem item =cartItemRepository.findByUserAndProduct(user, product).orElse(null);
+        CartItem item = cartItemRepository.findByUserAndProduct(user, product).orElse(null);
 
         if (item != null) {
             item.setQuantity(item.getQuantity() + quantity);
@@ -47,27 +55,27 @@ public class CartService {
         }
     }
 
-    // 数量変更
+    // カート数量更新
     public void updateQuantity(User user, Long productId, Integer quantity) {
         Product product = productService.findById(productId);
 
         cartItemRepository.findByUserAndProduct(user, product).ifPresent(item -> {
-                if (quantity <= 0) {
-                    cartItemRepository.delete(item);
-                } else {
-                    item.setQuantity(quantity);
-                }
-            });
+            if (quantity <= 0) {
+                cartItemRepository.delete(item);
+            } else {
+                item.setQuantity(quantity);
+            }
+        });
     }
 
-    // 削除
+    // カートアイテム削除
     public void remove(User user, Long productId) {
         Product product = productService.findById(productId);
 
         cartItemRepository.findByUserAndProduct(user, product).ifPresent(cartItemRepository::delete);
     }
 
-    // 合計金額
+    // 合計金額計算
     public int calcTotal(List<CartItem> items) {
         return items.stream().mapToInt(i -> i.getUnitPrice() * i.getQuantity()).sum();
     }
