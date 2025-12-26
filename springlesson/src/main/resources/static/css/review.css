@@ -113,7 +113,7 @@
 }
 
 .form-box{
-  width: 420px;
+  width: 1000px;
   max-width: 100%;
   margin-top: 10px;
 }
@@ -125,7 +125,7 @@
 .form-label{
   display:block;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 20px;
   margin: 0 0 6px;
 }
 
@@ -135,8 +135,9 @@
   border: 1px solid #cfcfcf;
   height: 26px;
   padding: 4px 8px;
-  font-size: 13px;
+  font-size: 20px;
   outline: none;
+  margin-bottom: 15px;
 }
 
 .form-textarea{
@@ -154,7 +155,7 @@
 
 /* バリデーションエラー */
 .field-error{
-  font-size: 12px;
+  font-size: 20px;
   color:#c62828;
   margin-top: 6px;
 }
