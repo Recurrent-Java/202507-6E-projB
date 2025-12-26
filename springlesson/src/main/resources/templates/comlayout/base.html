@@ -48,7 +48,7 @@
             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             マイページ
           </a>
-          <form id="logout-form" class="d-none" th:action="@{/mypage}" method="post"></form>
+          <form id="logout-form" class="d-none" th:action="@{/mypage}" method="get"></form>
         </li>
         <li><a th:href="@{/review}" class="nav_voice">お客様のご意見/ご感想</a></li>
       </ul>
