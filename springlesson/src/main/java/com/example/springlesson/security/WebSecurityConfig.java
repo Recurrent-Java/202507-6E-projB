@@ -47,7 +47,7 @@ public class WebSecurityConfig {
             .requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**").permitAll() // すべてのユーザーにアクセスを許可するURL
             .requestMatchers("/", "/login","/login/**", "/auth/**").permitAll()
             .requestMatchers("/product/**").permitAll()
-            .requestMatchers("/review").permitAll()
+            .requestMatchers("/review/**").permitAll()
             .requestMatchers("/purchase/**").permitAll()
             .anyRequest().authenticated() // 上記以外のURLはログインが必要（会員または管理者のどちらでもOK）
         )
